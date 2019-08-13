@@ -10,7 +10,6 @@ public class UsersV {
 	private StringProperty userId;
 	private StringProperty passwd;
 	private StringProperty email;
-	private StringProperty phoneNum;
 	private StringProperty nickName;
 	private IntegerProperty age;
 	private IntegerProperty sex;
@@ -20,7 +19,6 @@ public class UsersV {
 		userId = new SimpleStringProperty();
 		passwd = new SimpleStringProperty();
 		email = new SimpleStringProperty();
-		phoneNum = new SimpleStringProperty();
 		nickName = new SimpleStringProperty();
 		age = new SimpleIntegerProperty();
 		sex = new SimpleIntegerProperty();
@@ -35,9 +33,6 @@ public class UsersV {
 	}
 	public StringProperty emailProperty() {
 		return email;
-	}
-	public StringProperty phoneNumProperty() {
-		return phoneNum;
 	}
 	public StringProperty nickNameProperty() {
 		return nickName;
@@ -61,10 +56,6 @@ public class UsersV {
 
 	public String getEmail() {
 		return email.get();
-	}
-
-	public String getPhoneNum() {
-		return phoneNum.get();
 	}
 
 	public String getNickName() {
@@ -93,10 +84,6 @@ public class UsersV {
 		this.email.set(email);
 	}
 
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum.set(phoneNum);
-	}
-
 	public void setNickName(String nickName) {
 		this.nickName.set(nickName);
 	}
@@ -108,6 +95,14 @@ public class UsersV {
 	public void setSex(Integer sex) {
 		this.sex.set(sex);
 	}
+
+	@Override
+	public String toString() {
+		return "UsersV [userId=" + userId + ", passwd=" + passwd + ", email=" + email + ", nickName=" + nickName
+				+ ", age=" + age + ", sex=" + sex + "]";
+	}
 	
 
+	
+	
 }

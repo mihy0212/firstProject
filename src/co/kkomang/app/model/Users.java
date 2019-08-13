@@ -5,7 +5,6 @@ public class Users {
 	private String userId;
 	private String passwd;
 	private String email;
-	private String phoneNum;
 	private String nickName;
 	private int age;
 	private int sex;
@@ -28,12 +27,6 @@ public class Users {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoneNum() {
-		return phoneNum;
-	}
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
-	}
 	public String getNickName() {
 		return nickName;
 	}
@@ -51,6 +44,12 @@ public class Users {
 	}
 	public void setSex(int sex) {
 		this.sex = sex;
+	}
+	
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", passwd=" + passwd + ", email=" + email + ", nickName=" + nickName
+				+ ", age=" + age + ", sex=" + sex + "]";
 	}
 	
 	
