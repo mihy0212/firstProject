@@ -20,18 +20,17 @@ public class MainApp extends Application {
 	@Override
 //FirstPage
 	public void start(Stage primaryStage) throws Exception {
-		this.primaryStage = primaryStage;//primaryStage 다시 선언
+		this.primaryStage = primaryStage;// primaryStage 다시 선언
 		Parent root = FXMLLoader.load(getClass().getResource("view/FirstPage.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);// Stage에 root.fxml를 load한 scene를 가지고 있음
-		 primaryStage.setResizable(false);
-		primaryStage.show();
+		primaryStage.setResizable(false);
+//		primaryStage.show();
 //		 showmemberView();
 		showLogView();
-//	p	initRootLayout();
+//	initRootLayout();
 //		Thread.sleep(2000);
 
-		 
 	}
 
 	public void showLogView() {
@@ -43,8 +42,7 @@ public class MainApp extends Application {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	public void showmemberView() {
 		try {
 			AnchorPane memberView = FXMLLoader.load(getClass().getResource("view/members.fxml"));
@@ -54,7 +52,6 @@ public class MainApp extends Application {
 			e.printStackTrace();
 		}
 	}
-	
 
 	// RootLayout
 	public void initRootLayout() {
@@ -68,18 +65,18 @@ public class MainApp extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// home
-		public void home() {
-			try {
-				rootLayout = FXMLLoader.load(getClass().getResource("view/home.fxml"));
-				Scene scene = new Scene(rootLayout, 540, 960);
-				primaryStage.setTitle("HOME");
-				primaryStage.setScene(scene);
-				primaryStage.show();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	public void home() {
+		try {
+			rootLayout = FXMLLoader.load(getClass().getResource("view/home.fxml"));
+			Scene scene = new Scene(rootLayout, 540, 960);
+			primaryStage.setTitle("HOME");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+	}
 
 }
