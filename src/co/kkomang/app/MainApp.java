@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
 	private Stage primaryStage;
-	private AnchorPane layout;
 	private BorderPane rootLayout;
 
 	public static void main(String[] args) {
@@ -21,27 +20,41 @@ public class MainApp extends Application {
 	@Override
 //FirstPage
 	public void start(Stage primaryStage) throws Exception {
-		this.primaryStage = primaryStage;
-		layout = FXMLLoader.load(getClass().getResource("view/FirstPage.fxml"));
-		Scene scene = new Scene(layout);
-		primaryStage.setTitle("FIRST");
+		this.primaryStage = primaryStage;//primaryStage 다시 선언
+		Parent root = FXMLLoader.load(getClass().getResource("view/FirstPage.fxml"));
+		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);// Stage에 root.fxml를 load한 scene를 가지고 있음
+		 primaryStage.setResizable(false);
 		primaryStage.show();
-
-//		showLogView();
-		initRootLayout();
+//		 showmemberView();
+		showLogView();
+//	p	initRootLayout();
 //		Thread.sleep(2000);
+
+		 
 	}
 
 	public void showLogView() {
 		try {
-			AnchorPane logView = FXMLLoader.load(getClass().getResource("view/LoginView.fxml"));
+			AnchorPane logView = FXMLLoader.load(getClass().getResource("view/login.fxml"));
 			Scene scene = new Scene(logView);
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public void showmemberView() {
+		try {
+			AnchorPane memberView = FXMLLoader.load(getClass().getResource("view/members.fxml"));
+			Scene scene = new Scene(memberView);
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	// RootLayout
 	public void initRootLayout() {
@@ -56,10 +69,10 @@ public class MainApp extends Application {
 		}
 	}
 	
-	// RootLayout
+	// home
 		public void home() {
 			try {
-				rootLayout = FXMLLoader.load(getClass().getResource("view/RootLayout.fxml"));
+				rootLayout = FXMLLoader.load(getClass().getResource("view/home.fxml"));
 				Scene scene = new Scene(rootLayout, 540, 960);
 				primaryStage.setTitle("HOME");
 				primaryStage.setScene(scene);
