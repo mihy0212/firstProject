@@ -14,7 +14,7 @@ import javafx.scene.layout.StackPane;
 
 public class MembersController implements Initializable {
 	@FXML
-	private AnchorPane Member;
+	private AnchorPane Login;
 	@FXML
 	private TextField name;
 	@FXML
@@ -31,19 +31,6 @@ public class MembersController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		cancelBtn.setOnAction(e -> cancelAction(e));
-		
-		try {
-             Parent second =FXMLLoader.load(getClass().getResource("SecondRoot.fxml"));
-             Scene scene = new Scene(second);
-             Stage primaryStage =(Stage) btnSecond.getScene().getWindow();
-             primaryStage.setScene(scene);
-         } catch (IOException e) {
-             // TODO Auto-generated catch bloc"r
-             e.printStackTrace();
-         }
-     });
-		
-		
 		membersBtn.setOnAction(e -> membersAction(e));
 	}
 
