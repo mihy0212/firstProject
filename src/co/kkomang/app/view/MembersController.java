@@ -40,7 +40,6 @@ public class MembersController implements Initializable {
 	}
 
 	public void membersAction(ActionEvent event) {
-
 		StackPane root = (StackPane) cancelBtn.getScene().getRoot();
 		root.getChildren().remove(Login);
 
