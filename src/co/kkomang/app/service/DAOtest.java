@@ -9,6 +9,11 @@ import co.kkomang.app.model.UsersV;
 
 public class DAOtest {
 	
+	public void  start(stage primaryStage) {
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		Users user = new Users();
@@ -78,15 +83,13 @@ public class DAOtest {
 //		}
 		
 		//네이버 조회(static으로 저장했음.
-		for(BookInfoV b : NaverBookService.searchBook("너에게 닿기를", 20, 1)) {
+		for(BookInfoV b : NaverBookService.searchBook("너에게 닿기를", "query", 20, 1)) {
 			System.out.println(b);
 		}
 		
 		//조회한 내용 저장
 		
-		
-		
-		
+		launch(args);
 	}
 
 }

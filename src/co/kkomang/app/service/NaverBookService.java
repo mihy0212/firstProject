@@ -21,12 +21,14 @@ public class NaverBookService {
 	private static String clientID = "TVAYZu6yKlSeOtxsnG6o"; //api 사용 신청시 제공되는 아이디
     private static String clientSecret = "v6iFOxwCwt"; //패스워드
  
-    public static List<BookInfoV> searchBook(String keyword, int display, int start) {
+    public static List<BookInfoV> searchBook(String option, String keyword, int display, int start) {
         URL url;
         List<BookInfoV> list = null;
         try {
-            url = new URL("https://openapi.naver.com/v1/search/book.xml?query=" + URLEncoder.encode(keyword, "UTF-8")
-                    + (display != 0 ? "&display=" + display : "") + (start != 0 ? "&start=" + start : ""));
+        	
+        	//String option = "d_titl";
+        	//keyword = "너에게 닿기를";
+            url = new URL("https://openapi.naver.com/v1/search/book.xml?" + option+"="+URLEncoder.encode(keyword,"UTF-8")+"&display=30&start="+start);
             URLConnection urlConn;
  
             //url 연결
