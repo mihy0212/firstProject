@@ -55,7 +55,7 @@
       </ImageView>
       <ImageView fitHeight="144.0" fitWidth="153.0" layoutX="328.0" layoutY="588.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image  url="@../../../../app/view/img/google-plus.png" />
+            <Image url="@../../../../app/view/img/google-plus.png" />
          </image>
       </ImageView>
       <Label fx:id="lblStatus" layoutX="239.0" layoutY="535.0" text="Status">
@@ -63,7 +63,7 @@
             <Font name="Malgun Gothic" size="26.0" />
          </font>
       </Label>
-      <Button onAction="#Login" graphicTextGap="10.0" layoutX="373.0" layoutY="465.0" mnemonicParsing="false"  prefHeight="50.0" prefWidth="91.0" style="-fx-background-color: black; " text="login" />
-      <Button onAction="#membersAction" graphicTextGap="10.0" layoutX="63.0" layoutY="465.0" mnemonicParsing="false"  prefHeight="50.0" prefWidth="91.0" style="-fx-background-color: black; " text="member" textAlignment="CENTER" />
+      <Button graphicTextGap="10.0" layoutX="373.0" layoutY="465.0" mnemonicParsing="false" onAction="#Login" prefHeight="50.0" prefWidth="91.0" style="-fx-background-color: black; " text="login" />
+      <Button fx:id="membersBtn" graphicTextGap="10.0" layoutX="63.0" layoutY="465.0" mnemonicParsing="false" onAction="#membersAction" prefHeight="50.0" prefWidth="91.0" style="-fx-background-color: black; " text="member" textAlignment="CENTER" />
    </children>
 </AnchorPane>

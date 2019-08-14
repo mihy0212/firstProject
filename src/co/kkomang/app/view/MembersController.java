@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,7 +17,7 @@ import javafx.scene.layout.StackPane;
 
 public class MembersController implements Initializable {
 	@FXML
-	private AnchorPane Login;
+	private AnchorPane members;
 	@FXML
 	private TextField name;
 	@FXML
@@ -29,24 +30,30 @@ public class MembersController implements Initializable {
 	private Button membersBtn;
 	@FXML
 	private Button cancelBtn;
-	@FXML
-	private AnchorPane members;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		cancelBtn.setOnAction(e -> cancelAction(e));
-		membersBtn.setOnAction(e -> membersAction(e));
+//		cancelBtn.setOnAction(e -> cancelAction(e));
+//		membersBtn.setOnAction(e -> membersAction(e));
 	}
 
 	public void cancelAction(ActionEvent e) {
-		StackPane root = (StackPane) cancelBtn.getScene().getRoot();
-		root.getChildren().remove(Login);
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("members.fxml"));
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-
-	public void membersAction(ActionEvent event) {
-		StackPane root = (StackPane) cancelBtn.getScene().getRoot();
-		root.getChildren().remove(Login);
-
 	}
+//
+//	public void membersAction(ActionEvent event) {
+//		StackPane root = (StackPane) cancelBtn.getScene().getRoot();
+//		root.getChildren().remove(Login);
+//
+//	}
 	}
 
 

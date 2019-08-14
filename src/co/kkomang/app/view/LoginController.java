@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 	@FXML
-	private AnchorPane login;	
+	private AnchorPane login;
 	@FXML
 	private Label lblStatus;
 	@FXML
@@ -34,10 +34,9 @@ public class LoginController implements Initializable {
 	private PasswordField txtPassword;
 	@FXML
 	private Button membersBtn;
-	
-	
 
 	public void Login(ActionEvent event) throws Exception {
+		membersBtn.setGraphic(new ImageView("viw/login.png"));
 		if (txtUserName.getText().equals("userId") && txtPassword.getText().equals("passwd")) {
 			lblStatus.setText("Login Success");
 			Stage primaryStage = new Stage();// userName 과 password 가 일치하면 새로운 stage 가 생성
@@ -51,13 +50,10 @@ public class LoginController implements Initializable {
 		}
 	}
 
-	
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 //		membersBtn.setOnAction(e -> membersAction(e));
 	}
-
 
 //	@Override
 //	public void initialize(URL location, ResourceBundle resources) {
@@ -65,12 +61,13 @@ public class LoginController implements Initializable {
 //	}
 //    
 //	
-	public void membersAction(ActionEvent event){
-		try{
-		Parent members = FXMLLoader.load(getClass().getResource("view/members.fxml"));
-		AnchorPane root = (AnchorPane) members.getScene().getRoot();
-		root.getChildren().add(members);
-		}catch(Exception e){
+	public void membersAction(ActionEvent event) {
+		try {
+			Parent members = FXMLLoader.load(getClass().getResource("members.fxml"));
+			AnchorPane root = (AnchorPane) members.getScene().getRoot();
+			root.getChildren().add(members);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}}
+	}
+}
