@@ -25,10 +25,12 @@ public class NaverBookService {
         URL url;
         List<BookInfoV> list = null;
         try {
+        	if(option == "query") {
+        		url = new URL("https://openapi.naver.com/v1/search/book.xml?" + option+"="+URLEncoder.encode(keyword,"UTF-8")+"&display=" + display + "&start=" + start);
+        	} else {
+        		url = new URL("https://openapi.naver.com/v1/search/book_adv.xml?" + option+"="+URLEncoder.encode(keyword,"UTF-8")+"&display=" + display + "&start=" + start);
+        	}
         	
-        	//String option = "d_titl";
-        	//keyword = "너에게 닿기를";
-            url = new URL("https://openapi.naver.com/v1/search/book.xml?" + option+"="+URLEncoder.encode(keyword,"UTF-8")+"&display=30&start="+start);
             URLConnection urlConn;
  
             //url 연결
