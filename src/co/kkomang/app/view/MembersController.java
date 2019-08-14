@@ -5,7 +5,9 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -27,7 +29,8 @@ public class MembersController implements Initializable {
 	private Button membersBtn;
 	@FXML
 	private Button cancelBtn;
-
+	@FXML
+	private AnchorPane members;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		cancelBtn.setOnAction(e -> cancelAction(e));
@@ -44,5 +47,6 @@ public class MembersController implements Initializable {
 		root.getChildren().remove(Login);
 
 	}
+	}
 
-}
+
