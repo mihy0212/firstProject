@@ -13,14 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 //import javafx.scene.control.PasswordField;
-//import javafx.scene.control.TextField;
-//import javafx.scene.image.ImageView;
-//import javafx.scene.layout.AnchorPane;
-//import javafx.scene.layout.StackPane;
+
 import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
@@ -36,7 +31,7 @@ public class LoginController implements Initializable {
 	private Button membersBtn;
 
 	public void Login(ActionEvent event) throws Exception {
-		membersBtn.setGraphic(new ImageView("viw/login.png"));
+//		membersBtn.setGraphic(new ImageView("viw/login.png"));
 		if (txtUserName.getText().equals("userId") && txtPassword.getText().equals("passwd")) {
 			lblStatus.setText("Login Success");
 			Stage primaryStage = new Stage();// userName 과 password 가 일치하면 새로운 stage 가 생성
@@ -55,12 +50,7 @@ public class LoginController implements Initializable {
 //		membersBtn.setOnAction(e -> membersAction(e));
 	}
 
-//	@Override
-//	public void initialize(URL location, ResourceBundle resources) {
-////		member.setOnAction(e->membersAction(e));
-//	}
-//    
-//	
+
 	public void membersAction(ActionEvent event) {
 		try {
 			Parent members = FXMLLoader.load(getClass().getResource("members.fxml"));
