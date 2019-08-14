@@ -15,8 +15,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 //import javafx.scene.control.PasswordField;
-
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable {
 	@FXML
@@ -29,6 +30,8 @@ public class LoginController implements Initializable {
 	private PasswordField txtPassword;
 	@FXML
 	private Button membersBtn;
+	@FXML
+	private Button loginBtn;
 
 	public void Login(ActionEvent event) throws Exception {
 //		membersBtn.setGraphic(new ImageView("viw/login.png"));
@@ -47,15 +50,21 @@ public class LoginController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-//		membersBtn.setOnAction(e -> membersAction(e));
+		membersBtn.setOnAction(e -> membersAction(e));
 	}
 
 
 	public void membersAction(ActionEvent event) {
 		try {
+			Stage mem = new Stage(StageStyle.UTILITY);
+			mem.initModality(Modality.WINDOW_MODAL);
+			mem.initOwner(membersBtn.getScene().getWindow());	
 			Parent members = FXMLLoader.load(getClass().getResource("members.fxml"));
-			AnchorPane root = (AnchorPane) members.getScene().getRoot();
-			root.getChildren().add(members);
+			Scene scene = new Scene(members);
+			mem.setScene(scene);
+			mem.setResizable(false);
+			mem.show();	
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
