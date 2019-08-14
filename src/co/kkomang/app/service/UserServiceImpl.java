@@ -28,10 +28,10 @@ public class UserServiceImpl {
 		return instance;
 	}
 	
-	//등록
+	//회원 등록
 	public int insert(Users user) {
 		Connection conn = DAO.getConnect();
-				try {
+		try {
 			conn.setAutoCommit(false);
 			//아이디체크
 			Users uid = userDAO.selectOneId(conn, user.getUserId());
@@ -64,7 +64,7 @@ public class UserServiceImpl {
 		return rsCode;
 	}
 	
-	//수정
+	//회원 수정
 	public int update(Users user) {
 		Connection conn = DAO.getConnect();
 		try {
@@ -92,7 +92,7 @@ public class UserServiceImpl {
 		return rsCode;
 	}
 	
-	//삭제
+	//회원 삭제
 	public int delete(String userId) {
 		Connection conn = DAO.getConnect();
 		try {
@@ -119,7 +119,7 @@ public class UserServiceImpl {
 		return rsCode;
 	}
 	
-	//한건 조회
+	//회원 한건 조회
 	public Users selectOne(String userId) {
 		Connection conn = DAO.getConnect();
 		try {
@@ -132,7 +132,7 @@ public class UserServiceImpl {
 		}
 	}
 	
-	//전체 조회
+	//회원 전체 조회
 	public List<Users> selectAll() {
 		Connection conn = DAO.getConnect();
 		List<Users> list = null;

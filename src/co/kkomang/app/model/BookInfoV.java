@@ -1,53 +1,54 @@
 package co.kkomang.app.model;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 public class BookInfoV {
 	
 	//필드
-	private IntegerProperty isbn;
+	private StringProperty isbn;
+    private StringProperty link;
 	private StringProperty title;
 	private StringProperty publisher;
-	private StringProperty  author;
-	private StringProperty  pubdate;
-	private IntegerProperty  price;
-	private IntegerProperty  discount;
-	private StringProperty  image;
-	private StringProperty  description;
-	private IntegerProperty  category;
-	private StringProperty  memo;
-	private IntegerProperty  star;
-	private IntegerProperty  privateMemo;
-	private IntegerProperty  reading;
-	private StringProperty  readDate;
-	private IntegerProperty  choiceWhere;
+	private StringProperty author;
+	private StringProperty pubdate;
+	private StringProperty price;
+	private StringProperty discount;
+	private StringProperty image;
+	private StringProperty description;
+	private StringProperty category;
+	private StringProperty memo;
+	private StringProperty star;
+	private StringProperty privateMemo;
+	private StringProperty reading;
+	private StringProperty readDate;
 	
 	//생성자
 	public BookInfoV() {
-		isbn = new SimpleIntegerProperty();
+		isbn = new SimpleStringProperty();
+		link = new SimpleStringProperty();
 		title = new SimpleStringProperty();
 		publisher = new SimpleStringProperty();
 		author = new SimpleStringProperty();
 		pubdate = new SimpleStringProperty();
-		price = new SimpleIntegerProperty();
-		discount = new SimpleIntegerProperty();
+		price = new SimpleStringProperty();
+		discount = new SimpleStringProperty();
 		image = new SimpleStringProperty();
 		description = new SimpleStringProperty();
-		category = new SimpleIntegerProperty();
+		category = new SimpleStringProperty();
 		memo = new SimpleStringProperty();
-		star = new SimpleIntegerProperty();
-		privateMemo = new SimpleIntegerProperty();
-		reading  = new SimpleIntegerProperty();
+		star = new SimpleStringProperty();
+		privateMemo = new SimpleStringProperty();
+		reading  = new SimpleStringProperty();
 		readDate = new SimpleStringProperty();
-		choiceWhere = new SimpleIntegerProperty();
 	}
 	
 	//property 넘겨주는 메서드
-	public IntegerProperty isbnProperty() {
+	public StringProperty isbnProperty() {
 		return isbn;
+	}
+	public StringProperty linkProperty() {
+		return link;
 	}
 	public StringProperty titleProperty() {
 		return title;
@@ -61,10 +62,10 @@ public class BookInfoV {
 	public StringProperty pubdateProperty() {
 		return pubdate;
 	}
-	public IntegerProperty priceProperty() {
+	public StringProperty priceProperty() {
 		return price;
 	}
-	public IntegerProperty discountProperty() {
+	public StringProperty discountProperty() {
 		return discount;
 	}
 	public StringProperty imageProperty() {
@@ -73,32 +74,30 @@ public class BookInfoV {
 	public StringProperty descriptionProperty() {
 		return description;
 	}
-	public IntegerProperty categoryProperty() {
+	public StringProperty categoryProperty() {
 		return category;
 	}
 	public StringProperty memoProperty() {
 		return memo;
 	}
-	public IntegerProperty starProperty() {
+	public StringProperty starProperty() {
 		return star;
 	}
-	public IntegerProperty privateMemoProperty() {
+	public StringProperty privateMemoProperty() {
 		return privateMemo;
 	}
-	public IntegerProperty readingProperty() {
+	public StringProperty readingProperty() {
 		return reading;
-	}
-	public StringProperty readDateProperty() {
-		return readDate;
-	}
-	public IntegerProperty choiceWhereProperty() {
-		return choiceWhere;
 	}
 
 	
 	//getter
-	public Integer getIsbn() {
+	public String getIsbn() {
 		return isbn.get();
+	}
+	
+	public String getLink() {
+		return link.get();
 	}
 
 	public String getTitle() {
@@ -117,11 +116,11 @@ public class BookInfoV {
 		return pubdate.get();
 	}
 
-	public Integer getPrice() {
+	public String getPrice() {
 		return price.get();
 	}
 
-	public Integer getDiscount() {
+	public String getDiscount() {
 		return discount.get();
 	}
 
@@ -133,7 +132,7 @@ public class BookInfoV {
 		return description.get();
 	}
 
-	public Integer getCategory() {
+	public String getCategory() {
 		return category.get();
 	}
 
@@ -141,30 +140,30 @@ public class BookInfoV {
 		return memo.get();
 	}
 
-	public Integer getStar() {
+	public String getStar() {
 		return star.get();
 	}
 
-	public Integer getPrivateMemo() {
+	public String getPrivateMemo() {
 		return privateMemo.get();
 	}
 
-	public Integer getReading() {
+	public String getReading() {
 		return reading.get();
 	}
 
 	public String getReadDate() {
 		return readDate.get();
 	}
-
-	public Integer getChoiceWhere() {
-		return choiceWhere.get();
-	}
 	
 	//setter
 	
-	public void setIsbn(Integer isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn.set(isbn);
+	}
+	
+	public void setLink(String link) {
+		this.link.set(link);
 	}
 
 	public void setTitle(String title) {
@@ -183,11 +182,11 @@ public class BookInfoV {
 		this.pubdate.set(pubdate);
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(String price) {
 		this.price.set(price);
 	}
 
-	public void setDiscount(Integer discount) {
+	public void setDiscount(String discount) {
 		this.discount.set(discount);
 	}
 
@@ -199,7 +198,7 @@ public class BookInfoV {
 		this.description.set(description);
 	}
 
-	public void setCategory(Integer category) {
+	public void setCategory(String category) {
 		this.category.set(category);
 	}
 
@@ -207,15 +206,15 @@ public class BookInfoV {
 		this.memo.set(memo);
 	}
 
-	public void setStar(Integer star) {
+	public void setStar(String star) {
 		this.star.set(star);
 	}
 
-	public void setPrivateMemo(Integer privateMemo) {
+	public void setPrivateMemo(String privateMemo) {
 		this.privateMemo.set(privateMemo);
 	}
 
-	public void setReading(Integer reading) {
+	public void setReading(String reading) {
 		this.reading.set(reading);
 	}
 
@@ -223,9 +222,18 @@ public class BookInfoV {
 		this.readDate.set(readDate);
 	}
 
-	public void setChoiceWhere(Integer choiceWhere) {
-		this.choiceWhere.set(choiceWhere);
+
+	@Override
+	public String toString() {
+		return "BookInfoV [isbn=" + isbn + ", link=" + link + ", title=" + title + ", publisher=" + publisher
+				+ ", author=" + author + ", pubdate=" + pubdate + ", price=" + price + ", discount=" + discount
+				+ ", image=" + image + ", description=" + description + ", category=" + category + ", memo=" + memo
+				+ ", star=" + star + ", privateMemo=" + privateMemo + ", reading=" + reading + ", readDate=" + readDate
+				+ ", choiceWhere=" + "]";
 	}
+
+	
+	
 	
 	
 	
