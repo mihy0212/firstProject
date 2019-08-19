@@ -42,7 +42,7 @@ public class BookDAO {
 				+ " private_memo,"
 				+ " reading,"
 				+ " read_date)"
-				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, book.getIsbn());
 		pstmt.setString(2, book.getLink());
@@ -59,7 +59,6 @@ public class BookDAO {
 		pstmt.setString(13, book.getStar());
 		pstmt.setString(14, book.getPrivateMemo());
 		pstmt.setString(15, book.getReading());
-		pstmt.setString(16, book.getReadDate());
 		int r = pstmt.executeUpdate();
 		System.out.println(r+"건 등록 완료");
 	}

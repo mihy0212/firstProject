@@ -89,6 +89,9 @@ public class BookInfoV {
 	public StringProperty readingProperty() {
 		return reading;
 	}
+	public StringProperty readDateProperty() {
+		return readDate;
+	}
 
 	
 	//getter

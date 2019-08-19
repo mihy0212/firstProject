@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,6 +27,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Callback;
+
 
 
 public class SearchController implements Initializable{
@@ -68,11 +71,41 @@ public class SearchController implements Initializable{
 				"기본", "제목", "저자", "출판사");
 		option.setItems(list);
 		
+		//테이블뷰에 이미지 넣기
+//		Callback<TableColumn<BookInfoV, String> , TableCell<BookInfoV,String>> cellFactory;
+//		cellFactory = new Callback<TableColumn<BookInfoV, String> , TableCell<BookInfoV,String>>(){
+//
+//			@Override
+//			public TableCell<BookInfoV, String> call(TableColumn<BookInfoV, String> para) {
+//				ImageView imgView = new ImageView();
+//				final TableCell cell = new TableCell() {
+//
+//					@Override
+//					protected void updateItem(Object item, boolean empty) {
+//						
+//						super.updateItem(item, empty);
+//
+//						System.out.println(item);
+//						if(item !=null) {
+//							String url = (String) item;
+//							Image img = new Image(url);
+//							imgView.setImage(img);
+//							setGraphic(imgView);
+//						}
+//					}
+//					
+//				};
+//				return cell;
+//			}
+//			
+//		};
+		
 		//테이블뷰 초기화
 //		ImageView image = new ImageView();
 //		Image img = new Image(url);
 //		image.setImage(img);
 		colImage.setCellValueFactory(cellData -> cellData.getValue().imageProperty());
+//		colImage.setCellFactory(cellFactory);
 		colTitle.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
 		colAuthor.setCellValueFactory(cellData -> cellData.getValue().authorProperty());
 		colPublisher.setCellValueFactory(cellData -> cellData.getValue().publisherProperty());
@@ -186,13 +219,12 @@ public class SearchController implements Initializable{
 			books.setImage(imgImage.getId());
 			
 			books.setCategory("1");
-			books.setMemo("1");
-			books.setPrice("1");
-			books.setPrivateMemo("1");
-			books.setReadDate("18/12/12");
-			books.setReading("1");
-			books.setStar("1");
-			books.setLink("1");
+			books.setMemo(null);
+			books.setPrice("0");
+			books.setPrivateMemo(null);
+			books.setReading("0");
+			books.setStar("0");
+			books.setLink(null);
 			BookServiceImpl.getInstance().insert(books);
 			
 		} catch (Exception e) {
