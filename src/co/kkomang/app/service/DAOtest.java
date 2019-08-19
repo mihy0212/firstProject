@@ -49,11 +49,11 @@ public class DAOtest{
 //		for(UsersV ddd : listv) {
 //			System.out.println(ddd);
 //		}
-		Users a = uService.selectOne("111");
-		System.out.println(a);
-		
-		a = uService.login("vvv", "aaa");
-		System.out.println(a);
+//		Users a = uService.selectOne("111");
+//		System.out.println(a);
+//		
+//		a = uService.login("vvv", "aaa");
+//		System.out.println(a);
 		
 //		UsersV b = uService.selectOneV("112");
 //		System.out.println(b);
