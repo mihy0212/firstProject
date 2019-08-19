@@ -105,6 +105,7 @@ public class UserServiceImpl {
 				return rsCode;
 			}
 			userDAO.delete(conn, userId);
+			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			try {
@@ -124,6 +125,19 @@ public class UserServiceImpl {
 		Connection conn = DAO.getConnect();
 		try {
 			return userDAO.selectOneId(conn, userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			DAO.close(conn);
+		}
+	}
+	
+	//회원 로그인
+	public Users login(String userId, String passwd) {
+		Connection conn = DAO.getConnect();
+		try {
+			return userDAO.login(conn, userId, passwd);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

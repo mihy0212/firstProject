@@ -19,10 +19,10 @@ public class DAOtest{
 	public static void main(String[] args) {
 		
 		
-//		Users user = new Users();
-//		UsersV userv = new UsersV();
-//		UserServiceImpl uService = new UserServiceImpl();
-//		
+		Users user = new Users();
+		UsersV userv = new UsersV();
+		UserServiceImpl uService = new UserServiceImpl();
+		
 //		user.setUserId("112");
 //		user.setPasswd("aaa");
 //		user.setEmail("a2g@aaa.net");
@@ -49,9 +49,12 @@ public class DAOtest{
 //		for(UsersV ddd : listv) {
 //			System.out.println(ddd);
 //		}
-//		Users a = uService.selectOne("112");
-//		System.out.println(a);
-//		
+		Users a = uService.selectOne("111");
+		System.out.println(a);
+		
+		a = uService.login("vvv", "aaa");
+		System.out.println(a);
+		
 //		UsersV b = uService.selectOneV("112");
 //		System.out.println(b);
 //		

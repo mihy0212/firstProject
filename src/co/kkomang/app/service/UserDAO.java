@@ -88,6 +88,30 @@ public class UserDAO {
 		return user;
 	}
 	
+	//한건 조회: 아이디와 비밀번호 필요(로그인)
+	public Users login(Connection conn, String userId, String passwd) throws SQLException {
+		Users user = null;
+		String sql = "select user_id, passwd,"
+				+ " email, nick_name,"
+				+ " age, sex"
+				+ " from users"
+				+ " where user_id=? and passwd=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, userId);
+		pstmt.setString(2, passwd);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			user = new Users();
+			user.setUserId(rs.getString("user_id"));
+			user.setPasswd(rs.getString("passwd"));
+			user.setEmail(rs.getString("email"));
+			user.setNickName(rs.getString("nick_name"));
+			user.setAge(rs.getInt("age"));
+			user.setSex(rs.getInt("sex"));
+		}
+		return user;
+	}
+	
 	//한건 조회 : 이메일로 조회
 	public Users selectOneEmail(Connection conn, String email) throws SQLException {
 		Users user = null;
