@@ -31,8 +31,6 @@ public class MembersController implements Initializable {
 	@FXML
 	private Button okBtn;
 	@FXML
-	private Button loginBtn;
-	@FXML
 	private Button cancelBtn;
 	@FXML
 	private TextField txtuserId;
@@ -86,7 +84,7 @@ public class MembersController implements Initializable {
 			
 			Parent login = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
 			Scene scene1 = new Scene(login);
-			Stage primaryStage = (Stage) loginBtn.getScene().getWindow();
+			Stage primaryStage = (Stage) okBtn.getScene().getWindow();
 			primaryStage.setScene(scene1);
 
 		

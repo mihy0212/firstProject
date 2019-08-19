@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="members" prefHeight="800.0" prefWidth="450.0" style="fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.kkomang.app.view.MembersController">
+<AnchorPane fx:id="members" prefHeight="800.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.kkomang.app.view.MembersController">
 	<children>
 	  <Button fx:id="okBtn" layoutX="86.0" layoutY="600.0" onAction="#insertUser" text="확인" />
 	  <Button fx:id="cancelBtn" layoutX="307.0" layoutY="600.0" text="취소" />
-      <GridPane layoutX="157.0" layoutY="87.0" prefHeight="476.0" prefWidth="137.0">
+      <GridPane layoutX="157.0" layoutY="87.0" prefHeight="476.0" prefWidth="137.0" style="-fx-background-color: white;">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -42,7 +42,7 @@
             <Label text="나이" GridPane.rowIndex="10" />
       	  <Label text="아이디" />
             <Label text="비밀 번호" GridPane.rowIndex="2" />
-      	  <PasswordField  prefHeight="24.0" prefWidth="137.0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+      	  <PasswordField prefHeight="24.0" prefWidth="137.0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
       	  <TextField fx:id="txtnickName" GridPane.columnSpan="2" GridPane.rowIndex="9" />
       	  <TextField fx:id="txtuserId" GridPane.columnSpan="2" GridPane.rowIndex="1" />
             <CheckBox mnemonicParsing="false" prefHeight="16.0" prefWidth="55.0" text="여자" GridPane.rowIndex="13" />
