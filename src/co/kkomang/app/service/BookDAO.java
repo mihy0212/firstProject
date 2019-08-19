@@ -41,8 +41,7 @@ public class BookDAO {
 				+ " star,"
 				+ " private_memo,"
 				+ " reading,"
-				+ " read_date,"
-				+ " choice_where)"
+				+ " read_date)"
 				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, book.getIsbn());
@@ -81,8 +80,7 @@ public class BookDAO {
 				+ " star=?,"
 				+ " private_memo=?,"
 				+ " reading=?,"
-				+ " read_date=?,"
-				+ " choice_where=?"
+				+ " read_date=?"
 				+ " where isbn=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, book.getTitle());
@@ -100,7 +98,7 @@ public class BookDAO {
 		pstmt.setString(13, book.getPrivateMemo());
 		pstmt.setString(14, book.getReading());
 		pstmt.setString(15, book.getReadDate());
-		pstmt.setString(17, book.getIsbn());
+		pstmt.setString(16, book.getIsbn());
 		int r = pstmt.executeUpdate();
 		System.out.println(r+"건 수정 완료");
 	}
@@ -147,8 +145,7 @@ public class BookDAO {
 						+ " star,"
 						+ " private_memo,"
 						+ " reading,"
-						+ " read_date,"
-						+ " choice_where"
+						+ " read_date"
 				+ " from books"
 				+ " where isbn=?";
 		pstmt = conn.prepareStatement(sql);
@@ -195,8 +192,7 @@ public class BookDAO {
 						+ " star,"
 						+ " private_memo,"
 						+ " reading,"
-						+ " read_date,"
-						+ " choice_where"
+						+ " read_date"
 				+ " from books"
 				+ " where title=?";
 		pstmt = conn.prepareStatement(sql);
@@ -282,8 +278,7 @@ public class BookDAO {
 						+ " star,"
 						+ " private_memo,"
 						+ " reading,"
-						+ " read_date,"
-						+ " choice_where"
+						+ " read_date"
 				+ " from books";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
@@ -328,8 +323,7 @@ public class BookDAO {
 						+ " star,"
 						+ " private_memo,"
 						+ " reading,"
-						+ " read_date,"
-						+ " choice_where"
+						+ " read_date"
 				+ " from books"
 				+ " where isbn=?";
 		pstmt = conn.prepareStatement(sql);
@@ -376,8 +370,7 @@ public class BookDAO {
 						+ " star,"
 						+ " private_memo,"
 						+ " reading,"
-						+ " read_date,"
-						+ " choice_where"
+						+ " read_date"
 				+ " from books"
 				+ " where title=?";
 		pstmt = conn.prepareStatement(sql);
@@ -425,8 +418,7 @@ public class BookDAO {
 						+ " star,"
 						+ " private_memo,"
 						+ " reading,"
-						+ " read_date,"
-						+ " choice_where"
+						+ " read_date"
 				+ " from books";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();

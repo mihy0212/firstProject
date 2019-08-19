@@ -20,7 +20,7 @@
             <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#searchNaver" prefHeight="35.0" prefWidth="50.0" text="검색" />
          </children>
       </HBox>
-      <TableView fx:id="tvBooks" layoutX="6.0" layoutY="240.0" onMouseClicked="#getInformation" prefHeight="514.0" prefWidth="437.0" tableMenuButtonVisible="true">
+      <TableView fx:id="tvBooks" layoutX="6.0" layoutY="263.0" onMouseClicked="#getInformation" prefHeight="491.0" prefWidth="437.0" tableMenuButtonVisible="true">
         <columns>
           <TableColumn fx:id="colImage" prefWidth="75.0" text="표지" />
           <TableColumn fx:id="colTitle" prefWidth="75.0" text="제목" />
@@ -34,7 +34,7 @@
       </TableView>
       <Label layoutX="14.0" layoutY="65.0" text="▶ 선택한 책 정보" />
       <ImageView fx:id="imgImage" fitHeight="142.0" fitWidth="110.0" layoutX="14.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="laTitle" layoutX="129.0" layoutY="84.0" prefHeight="35.0" prefWidth="261.0">
+      <Label fx:id="laTitle" layoutX="129.0" layoutY="84.0" prefHeight="35.0" prefWidth="231.0">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
@@ -52,5 +52,7 @@
       <Label fx:id="laPublisher" layoutX="306.0" layoutY="121.0" prefHeight="22.0" prefWidth="96.0" />
       <Label fx:id="laIsbn" layoutX="159.0" layoutY="142.0" prefHeight="22.0" prefWidth="96.0" />
       <Label fx:id="laPubdate" layoutX="306.0" layoutY="142.0" prefHeight="22.0" prefWidth="96.0" />
+      <Button fx:id="btnInsert" onAction="#insertMyBooks" layoutX="342.0" layoutY="236.0" mnemonicParsing="false" text="내 서재에 등록" />
+      <Label fx:id="laDiscount" layoutX="370.0" layoutY="95.0" prefHeight="22.0" prefWidth="70.0" textFill="#909090" />
    </children>
 </AnchorPane>

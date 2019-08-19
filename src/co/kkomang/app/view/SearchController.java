@@ -6,8 +6,9 @@ import java.util.ResourceBundle;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-
+import co.kkomang.app.model.BookInfo;
 import co.kkomang.app.model.BookInfoV;
+import co.kkomang.app.service.BookServiceImpl;
 import co.kkomang.app.service.NaverBookService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +16,6 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -44,6 +44,8 @@ public class SearchController implements Initializable{
 	@FXML private Label laDiscount;
 	@FXML private Label laDescription;
 	@FXML private ImageView imgImage;
+	
+	@FXML private Button btnInsert;
 
 	@FXML private TableView<BookInfoV> tvBooks;
 //	@FXML private TableColumn<BookInfoV, ImageView> colImage;
@@ -87,8 +89,7 @@ public class SearchController implements Initializable{
 		showBooksDetail(null);
 		tvBooks.getSelectionModel().selectedItemProperty().addListener((Observable, oldValue, newValue) -> showBooksDetail(newValue));
 	
-	}
-	
+	}	
 
 	//검색 버튼
 	@FXML
@@ -161,11 +162,41 @@ public class SearchController implements Initializable{
 		laTitle.setText(tvBooks.getSelectionModel().getSelectedItem().getTitle());
 		laAuthor.setText(tvBooks.getSelectionModel().getSelectedItem().getAuthor());
 		laPublisher.setText(tvBooks.getSelectionModel().getSelectedItem().getPublisher());
+		laPubdate.setText(tvBooks.getSelectionModel().getSelectedItem().getPubdate());
 		laIsbn.setText(tvBooks.getSelectionModel().getSelectedItem().getIsbn());
 		laDiscount.setText(tvBooks.getSelectionModel().getSelectedItem().getDiscount());
 		laDescription.setText(tvBooks.getSelectionModel().getSelectedItem().getDescription());
 		String url = tvBooks.getSelectionModel().getSelectedItem().getImage();
 		Image img = new Image(url);
 		imgImage.setImage(img);
+	}
+	
+	//내서재에 등록
+	@FXML
+	private void insertMyBooks(ActionEvent actionEvent) {
+		try {
+			BookInfo books = new BookInfo();
+			books.setTitle(laTitle.getText());
+			books.setAuthor(laAuthor.getText());
+			books.setPublisher(laPublisher.getText());
+			books.setPubdate(laPubdate.getText());
+			books.setIsbn(laIsbn.getText());
+			books.setDiscount(laDiscount.getText());
+			books.setDescription(laDescription.getText());
+			books.setImage(imgImage.getId());
+			
+			books.setCategory("1");
+			books.setMemo("1");
+			books.setPrice("1");
+			books.setPrivateMemo("1");
+			books.setReadDate("18/12/12");
+			books.setReading("1");
+			books.setStar("1");
+			books.setLink("1");
+			BookServiceImpl.getInstance().insert(books);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

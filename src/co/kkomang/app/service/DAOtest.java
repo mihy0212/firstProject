@@ -59,26 +59,26 @@ public class DAOtest{
 //		System.out.println(b);
 //		
 	
-//		BookInfo book = new BookInfo();
-//		BookInfoV bookv = new BookInfoV();
-//		BookServiceImpl bService = new BookServiceImpl();
+		BookInfo book = new BookInfo();
+		BookInfoV bookv = new BookInfoV();
+		BookServiceImpl bService = new BookServiceImpl();
 		
-//		book.setIsbn(44444);
-//		book.setTitle("ㅁㄴㅇㄻㄴㅇㄹ");
+//		book.setIsbn("44444");
+//		book.setTitle("가가가");
 //		book.setAuthor("Author");
-//		book.setCategory(1);
-//		book.setChoiceWhere(1);
+//		book.setCategory("1");
 //		book.setDescription("description");
-//		book.setDiscount(2500);
-//		book.setImage(null);
+//		book.setDiscount("2500");
+//		book.setImage("");
 //		book.setMemo("memo");
-//		book.setPrice(3000);
-//		book.setPrivateMemo(0);
+//		book.setPrice("3000");
+//		book.setPrivateMemo("0");
 //		book.setPubdate("1995/02/02");
 //		book.setReadDate("2019/01/01");
 //		book.setPublisher("나나");
-//		book.setReading(1);
-//		book.setStar(5);
+//		book.setReading("1");
+//		book.setStar("5");
+//		book.setLink("");
 //		bService.insert(book);
 //		bService.update(book);
 //		bService.delete();

@@ -63,39 +63,39 @@ public class NaverBookService {
                         break;
                     case "title":
                         if (b != null)
-                            b.setTitle(parser.nextText());
+                            b.setTitle(tagDel(parser.nextText()));
                         break;
                     case "link":
                         if (b != null)
-                            b.setLink(parser.nextText());
+                            b.setLink(tagDel(parser.nextText()));
                         break;
                     case "image":
                         if (b != null)
-                            b.setImage(parser.nextText());
+                            b.setImage(tagDel(parser.nextText()));
                         break;
                     case "author":
                         if (b != null)
-                            b.setAuthor(parser.nextText());
+                            b.setAuthor(tagDel(parser.nextText()));
                         break;
                     case "discount":
                         if (b != null)
-                            b.setDiscount(parser.nextText());
+                            b.setDiscount(tagDel(parser.nextText()));
                         break;
                     case "publisher":
                         if (b != null)
-                            b.setPublisher(parser.nextText());
+                            b.setPublisher(tagDel(parser.nextText()));
                         break;
                     case "pubdate":
                         if (b != null)
-                            b.setPubdate(parser.nextText());
+                            b.setPubdate(tagDel(parser.nextText()));
                         break;
                     case "isbn":
                         if (b != null)
-                            b.setIsbn(parser.nextText());
+                            b.setIsbn(tagDel(parser.nextText()));
                         break;
                     case "description":
                         if (b != null)
-                            b.setDescription(parser.nextText());
+                            b.setDescription(tagDel(parser.nextText()));
                         break;
                     }
                     break;
@@ -125,5 +125,11 @@ public class NaverBookService {
         }
         return list;
     }
+    
+    public static String tagDel(String src) {
+    	String str = src.replaceAll("<[^>]*>", " ");
+    	return str;
+    }
+    
 
 }
