@@ -53,7 +53,7 @@
             <Font name="Malgun Gothic" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="loginBtn" graphicTextGap="10.0" layoutX="373.0" layoutY="465.0" mnemonicParsing="false" onAction="#Login" prefHeight="50.0" prefWidth="91.0" style="-fx-background-color: black; " text="login" />
-      <Button fx:id="membersBtn" graphicTextGap="10.0" layoutX="63.0" layoutY="465.0" mnemonicParsing="false" onAction="#membersAction" prefHeight="50.0" prefWidth="91.0" style="-fx-background-color: black; " text="member" textAlignment="CENTER" />
+      <Button fx:id="loginBtn" graphicTextGap="10.0" layoutX="373.0" layoutY="465.0" mnemonicParsing="false" onAction="#LoginAction" prefHeight="50.0" prefWidth="91.0" text="login" />
+      <Button fx:id="membersBtn" graphicTextGap="10.0" layoutX="63.0" layoutY="465.0" mnemonicParsing="false" onAction="#membersAction" prefHeight="50.0" prefWidth="91.0" text="member" textAlignment="CENTER" />
    </children>
 </AnchorPane>

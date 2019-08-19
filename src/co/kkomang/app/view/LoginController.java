@@ -1,12 +1,8 @@
 package co.kkomang.app.view;
 
-import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import co.kkomang.app.model.Users;
-import co.kkomang.app.model.UsersV;
 import co.kkomang.app.service.UserServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,10 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-//import javafx.scene.control.PasswordField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable {
 	@FXML
@@ -38,51 +31,125 @@ public class LoginController implements Initializable {
 	@FXML
 	private Button loginBtn;
 
-	public void Login(ActionEvent event) throws SQLException {
-		Users user = new Users();
-		UsersV userv = new UsersV();
-		UserServiceImpl uService = new UserServiceImpl();
-//		membersBtn.setGraphic(new ImageView("viw/login.png"));
-		if (txtUserName.getText().equals(uService.selectOne(txtUserName.getText())) && txtPassword.getText().equals((uService.selectOne(txtPassword.getText())))) {
-			lblStatus.setText("Login Success");
-			Stage primaryStage = new Stage();// userName 과 password 가 일치하면 새로운 stage 가 생성
-			Parent root;
-			try {
-				root = FXMLLoader.load(getClass().getResource("home.fxml"));
-				Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("btn.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		} else {
-			lblStatus.setText("Login Failed");
-		}
-	}
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		membersBtn.setOnAction(e -> membersAction(e));
+		membersBtn.setOnAction(event -> membersAction(event));
 	}
-
 
 	public void membersAction(ActionEvent event) {
 		try {
-			Stage mem = new Stage(StageStyle.UTILITY);
-			mem.initModality(Modality.WINDOW_MODAL);
-			mem.initOwner(membersBtn.getScene().getWindow());	
-			Parent members = FXMLLoader.load(getClass().getResource("members.fxml"));
-			Scene scene = new Scene(members);
-			mem.setScene(scene);
-			mem.setResizable(false);
-			mem.show();	
-			
+			Parent members = FXMLLoader.load(getClass().getResource("members.fxml"));// 새 레이아웃 추가
+			Scene scene = new Scene(members);// 씬에 레이아웃 추가
+			Stage primaryStage = (Stage) membersBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+//			mem.setScene(scene); // 씬에 레이아웃 추가//이 코드 있을 경우 member에서 canel 사용불가
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+//
+//	public void LoginAction(ActionEvent event) throws Exception {
+//		if (txtUserName.getText().equals("user") && txtPassword.getText().equals("pass")) {
+//			lblStatus.setText("Login Success");
+//			// 새스테이지 추가
+//			Stage primaryStage = new Stage();
+//			// 새 레이아웃 추가
+//			Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+//			// 새 레이아웃 추가
+//			Scene scene = new Scene(root);
+////	            scene.getStylesheets().add(getClass().getResource("btn.css").toExternalForm());
+//			// 씬을 스테이지에서 상영
+//			primaryStage.setScene(scene);
+//			primaryStage.show();
+//		} else {
+//			lblStatus.setText("Login Failed");
+//		}
+//	}
+	
+
+//db연결
+	public void LoginAction(ActionEvent event) {
+//	membersBtn.setGraphic(new ImageView("viw/login.png"));	
+		try {
+			UserServiceImpl uService = new UserServiceImpl();
+
+			if (uService.login(txtUserName.getText(), txtPassword.getText()) != null) {
+				uService.login(txtUserName.getText(), txtPassword.getText());
+				lblStatus.setText("Login Success");
+			Parent home = FXMLLoader.load(getClass().getResource("Home.fxml"));// 새 레이아웃 추가
+			Scene scene = new Scene(home);// 씬에 레이아웃 추가
+			Stage primaryStage = (Stage) membersBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+			}
+			else {
+				lblStatus.setText("Login Failed");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+
+	}
 }
+
+	/*
+	 * 자바는 컨트롤에서 이벤트를 직접 처리하지 않고 EventHandler에게 처리를 맡긴다. 그래서 버튼을 클릭하면 ActionEvent가
+	 * 발생하고 EventHandler가 이 ActionEvent를 처리하는 방식
+	 */
+//		@Override
+//	public void initialize(URL arg0, ResourceBundle arg1) {
+//		EventHandler<ActionEvent> handler = new LoginHandler();
+//		loginBtn.setOnAction(handler);
+//		membersBtn.setOnAction(e -> membersAction(e));
+//	}
+//	class LoginHandler implements EventHandler<ActionEvent> {
+//		@Override
+//		public void handle(ActionEvent event)  {
+//				Parent root;
+//				try {
+//					if (txtUserName.getText().equals("user") && txtPassword.getText().equals("pass")) {
+//						lblStatus.setText("Login Success");
+//						// 새스테이지 추가
+//						Stage primaryStage = new Stage();
+//						// 새 레이아웃 추가
+//					root = FXMLLoader.load(getClass().getResource("home.fxml"));
+//					// 새 레이아웃 추가
+//					Scene scene = new Scene(root);
+////			            scene.getStylesheets().add(getClass().getResource("btn.css").toExternalForm());
+//					// 씬을 스테이지에서 상영
+//					primaryStage.setScene(scene);
+//					primaryStage.show();
+//					}
+//				 else {
+//					lblStatus.setText("Login Failed");
+//					
+//				}
+//				}catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} 
+//	}
+//	LoginVeiw 수정
+//	<Button fx:id="loginBtn" graphicTextGap="10.0" layoutX="373.0" layoutY="465.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="91.0" style="-fx-background-color: black; " text="login" />
+//    <Button fx:id="membersBtn" graphicTextGap="10.0" layoutX="63.0" layoutY="465.0" mnemonicParsing="false" prefHeight="50.0"prefWidth="91.0" style="-fx-background-color: black; " text="member" textAlignment="CENTER" />
+
+
+/*
+ * 메소드 호출안하고 사용하기 기존화면 놔두고
+ */
+//public void membersAction(ActionEvent event) {
+//	try {
+//		Stage mem = new Stage(StageStyle.UTILITY);// 새스테이지 추가
+//		mem.initModality(Modality.WINDOW_MODAL);//
+//		mem.initOwner(membersBtn.getScene().getWindow());
+//		Parent members = FXMLLoader.load(getClass().getResource("members.fxml"));// 새 레이아웃 추가
+//		Scene scene = new Scene(members);// 씬에 레이아웃 추가
+////					mem.setScene(scene); // 씬에 레이아웃 추가
+////		 mem.setResizable(false);
+////		mem.show();
+//
+//	} catch (Exception e) {
+//		e.printStackTrace();
+//	}
+//}

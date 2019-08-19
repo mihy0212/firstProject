@@ -10,36 +10,32 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class FirstController implements Initializable {
 	@FXML
+	private ImageView startjpg;
+	@FXML
 	private Button startbtn;
-	
 	@FXML
 	private AnchorPane first;
 
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		startbtn.setOnAction(e-> handlebtnStart(e));
+		startbtn.setOnAction(event -> StartAction(event));
 	}
 
-	public void handlebtnStart(ActionEvent event) {
+	public void StartAction(ActionEvent event) {
 
 		try {
-			Stage srt = new Stage(StageStyle.UTILITY);
-			srt.initModality(Modality.WINDOW_MODAL);
-			srt.initOwner(startbtn.getScene().getWindow());	
-			Parent login = FXMLLoader.load(getClass().getResource("LoginVeiw.fxml"));
+//			Button startbtn = new Button("Home", startjpg);
+			Parent login = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
 			Scene scene = new Scene(login);
-			srt.setScene(scene);
-			srt.setResizable(false);
-			srt.show();
-			
+			Stage primaryStage = (Stage) startbtn.getScene().getWindow();
+			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
