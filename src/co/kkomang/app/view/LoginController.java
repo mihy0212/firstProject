@@ -32,6 +32,7 @@ public class LoginController implements Initializable {
 	private Button membersBtn;
 	@FXML
 	private Button loginBtn;
+
 //	private User user;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -49,9 +50,7 @@ public class LoginController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
 //	//db연결
 //		public void LoginAction(ActionEvent event) {
 //			try {
@@ -76,38 +75,37 @@ public class LoginController implements Initializable {
 //
 //		}
 //	}
-	//db연결
+	// db연결
 	public void LoginAction(ActionEvent event) {
 		try {
 			UserServiceImpl uService = new UserServiceImpl();
-			//정상 로그인이 되었을 경우
+			// 정상 로그인이 되었을 경우
 			if (uService.login(txtUserName.getText(), txtPassword.getText()) != null) {
 				uService.login(txtUserName.getText(), txtPassword.getText());
 				lblStatus.setText("로그인 되었습니다");
-			//로그인 성공시 화면 전환
-			Parent home = FXMLLoader.load(getClass().getResource("Home.fxml"));// 새 레이아웃 추가
-			Scene scene = new Scene(home);// 씬에 레이아웃 추가
-			Stage primaryStage = (Stage) membersBtn.getScene().getWindow();
-			primaryStage.setScene(scene);
+				// 로그인 성공시 화면 전환
+//			Parent home = FXMLLoader.load(getClass().getResource("Home.fxml"));// 새 레이아웃 추가
+				Parent home = FXMLLoader.load(getClass().getResource("Search.fxml"));
+				Scene scene = new Scene(home);// 씬에 레이아웃 추가
+				Stage primaryStage = (Stage) membersBtn.getScene().getWindow();
+				primaryStage.setScene(scene);
 			}
-			//입력안했을경우
+			// 입력안했을경우
 			else if (txtUserName.getText().equals("") || txtPassword.getText().equals("")) {
-				lblStatus.setText( "아이디와 비밀번호를 입력해주세요");
+				lblStatus.setText("아이디와 비밀번호를 입력해주세요");
 			}
-			//아이디와 비밀번호가 틀린경우
+			// 아이디와 비밀번호가 틀린경우
 			else {
 				lblStatus.setText("아이디와 비밀번호를 확인주세요");
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		}
 
 	}
 }
-
-
 
 //
 //	public void LoginAction(ActionEvent event) throws Exception {
@@ -127,11 +125,11 @@ public class LoginController implements Initializable {
 //			lblStatus.setText("Login Failed");
 //		}
 //	}
-	
-	/*
-	 * 자바는 컨트롤에서 이벤트를 직접 처리하지 않고 EventHandler에게 처리를 맡긴다. 그래서 버튼을 클릭하면 ActionEvent가
-	 * 발생하고 EventHandler가 이 ActionEvent를 처리하는 방식
-	 */
+
+/*
+ * 자바는 컨트롤에서 이벤트를 직접 처리하지 않고 EventHandler에게 처리를 맡긴다. 그래서 버튼을 클릭하면 ActionEvent가
+ * 발생하고 EventHandler가 이 ActionEvent를 처리하는 방식
+ */
 //		@Override
 //	public void initialize(URL arg0, ResourceBundle arg1) {
 //		EventHandler<ActionEvent> handler = new LoginHandler();
@@ -168,7 +166,6 @@ public class LoginController implements Initializable {
 //	LoginVeiw 수정
 //	<Button fx:id="loginBtn" graphicTextGap="10.0" layoutX="373.0" layoutY="465.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="91.0" style="-fx-background-color: black; " text="login" />
 //    <Button fx:id="membersBtn" graphicTextGap="10.0" layoutX="63.0" layoutY="465.0" mnemonicParsing="false" prefHeight="50.0"prefWidth="91.0" style="-fx-background-color: black; " text="member" textAlignment="CENTER" />
-
 
 /*
  * 메소드 호출안하고 사용하기 기존화면 놔두고

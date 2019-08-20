@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="first" prefHeight="800.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.kkomang.app.view.FirstController">
+<AnchorPane fx:id="first" prefHeight="800.0" prefWidth="450.0" style="-fx-background-color: #293656;" styleClass="first" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.kkomang.app.view.FirstController">
    <children>
-      <ImageView fx:id="startjpg" fitHeight="335.0" fitWidth="294.0" layoutX="90.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/logo.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="171.0" layoutY="563.0" prefHeight="15.0" prefWidth="213.0" text="읽어랏">
+      <Button fx:id="startbtn" layoutX="81.0" layoutY="376.0" mnemonicParsing="false" onAction="#StartAction" prefHeight="114.0" prefWidth="289.0" style="-fx-background-color: transparent;" text="읽어랏" textFill="WHITE">
          <font>
-            <Font size="60.0" />
-         </font>
-      </Label>
-      <Button fx:id="startbtn" layoutX="322.0" layoutY="644.0" mnemonicParsing="false" onAction="#StartAction" text="start" />
+            <Font size="50.0" />
+         </font></Button>
    </children>
 </AnchorPane>

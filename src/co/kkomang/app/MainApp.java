@@ -43,7 +43,7 @@ private Stage primaryStage;
 //		showLogView();
 //		initRootLayout();
 		//	home();
-		Thread.sleep(2000);
+//		Thread.sleep(2000);
 
 	}
 
