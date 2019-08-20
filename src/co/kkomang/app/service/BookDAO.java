@@ -65,11 +65,12 @@ public class BookDAO {
 	
 	//책 정보수정
 	public void update(Connection conn, BookInfo book) throws SQLException {
+		System.out.println(book);
 		String sql = "update books set title=?,"
 				+ " link=?,"
 				+ " publisher=?,"
 				+ " author=?,"
-				+ " pubdate=?,"
+				+ " pubdate=to_date(?, 'yyyyMMdd'),"
 				+ " price=?,"
 				+ " discount=?,"
 				+ " image=?,"
@@ -79,7 +80,7 @@ public class BookDAO {
 				+ " star=?,"
 				+ " private_memo=?,"
 				+ " reading=?,"
-				+ " read_date=?"
+				+ " read_date=to_date(?, 'yyyy-MM-dd')"
 				+ " where isbn=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, book.getTitle());

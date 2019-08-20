@@ -17,7 +17,7 @@
             <TableColumn fx:id="colAuthor" prefWidth="85.0" text="저자" />
             <TableColumn fx:id="colReading" prefWidth="61.0" text="읽기상태" />
             <TableColumn fx:id="colReadDate" prefWidth="65.0" text="독서날짜" />
-            <TableColumn fx:id="colReadDate1" prefWidth="65.0" text="ISBN" />
+            <TableColumn fx:id="colIsbn" prefWidth="65.0" text="ISBN" />
          </columns>
       </TableView>
       <HBox layoutX="11.0" layoutY="12.0" prefHeight="40.0" prefWidth="429.0" spacing="10.0">

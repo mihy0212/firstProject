@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -14,8 +15,12 @@ import co.kkomang.app.service.BookServiceImpl;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -29,7 +34,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ReadBookController implements Initializable{
 
@@ -57,9 +64,9 @@ public class ReadBookController implements Initializable{
 	@FXML private Button btnUpdate;
 	@FXML private Button btnDelete;
 	
-	private Stage readBookStage;
-	private BookInfo books;
-	private Executor exec;
+	Stage readBookStage;
+	BookInfo books;
+	Executor exec;
 	
 	final ToggleGroup group = new ToggleGroup();
 	
@@ -73,19 +80,20 @@ public class ReadBookController implements Initializable{
 			return t;
 		});
 		
-
-		
-		
-		
 	}
 	
 	private void selectOneBooks() {
 		String isbn = laIsbn.getText();
 		BookInfo books = BookServiceImpl.getInstance().selectIsbn(isbn);
 		
-		String url = books.getImage();
-		Image img = new Image(url);
-		imgBook.setImage(img);
+//		System.out.println(books.getImage());
+		if(books.getImage() != null) {
+			String url = books.getImage();
+			Image img = new Image(url);
+			imgBook.setImage(img);
+		} else {
+			imgBook.setImage(null);
+		}
 		
 		laTitle.setText(books.getTitle());
 		laAuthor.setText(books.getAuthor());
@@ -95,6 +103,7 @@ public class ReadBookController implements Initializable{
 		int pubdateMM = getFromCalendar(books.getPubdate(),Calendar.MONTH);
 		int pubdateDD = getFromCalendar(books.getPubdate(),Calendar.DAY_OF_MONTH);
 		laPubdate.setText(pubdateYY+"년 "+pubdateMM+"월 "+pubdateDD+"일"); // 이것도 년월일로 나와야 함
+		System.out.println(laPubdate.getText());
 		
 		//'읽기 진행 상황' 그룹으로 묶기
 		reading1.setUserData("1");
@@ -113,12 +122,15 @@ public class ReadBookController implements Initializable{
 				}
 			}
 		);
+		System.out.println(group.getSelectedToggle().getUserData().toString());
 		
 //		pickReadDate.setValue(Integer.parseInt(books.getReadDate()));
 		int readDateYY = getFromCalendar(books.getReadDate(),Calendar.YEAR);
 		int readDateMM = getFromCalendar(books.getReadDate(),Calendar.MONTH);
 		int readDateDD = getFromCalendar(books.getReadDate(),Calendar.DAY_OF_MONTH);
 		pickReadDate.setValue(LocalDate.of (readDateYY, readDateMM, readDateDD));
+		System.out.println(pickReadDate.getValue().toString());
+		
 		
 		txtStar.setText(books.getStar());
 		txtDescription.setText(books.getDescription());
@@ -135,27 +147,44 @@ public class ReadBookController implements Initializable{
 	
 	
 	@FXML
-	private void insertBooks(ActionEvent actionEvent) {
+	private void updateBooks(ActionEvent actionEvent) {
 		try {
-			books = new BookInfo();
-			books.setAuthor(laAuthor.getText());
-			books.setCategory("1");
-			books.setDescription(txtDescription.getText());
-			books.setDiscount(txtDiscount.getText());
-			books.setImage(imgBook.getId());
-			books.setIsbn(laIsbn.getText());
-			books.setLink(hyLink.getText());
-			books.setMemo(txtMemo.getText());
-			books.setPrice(txtPrice.getText());
-			books.setPrivateMemo("0");
-			books.setPubdate(laPubdate.getText());
-			books.setPublisher(laPublisher.getText());
-			books.setReadDate(pickReadDate.getId());
-			books.setReading(group.toString());
-			books.setStar(txtStar.getText());
-			books.setTitle(laTitle.getText());
 			
-			BookServiceImpl.getInstance().insert(books);
+			Alert updateAlert = new Alert(Alert.AlertType.CONFIRMATION);
+			updateAlert.setTitle("책 정보 수정 확인");
+			updateAlert.setHeaderText("책 정보 수정 확인");
+			updateAlert.setContentText("책 정보를 입력한 내용으로 수정하시겠습니까?");
+			Optional<ButtonType> result = updateAlert.showAndWait();
+			
+			if(result.get() == ButtonType.OK) {
+				books = new BookInfo();
+				books.setAuthor(laAuthor.getText());
+				books.setCategory("1");
+				books.setDescription(txtDescription.getText());
+				books.setDiscount(txtDiscount.getText());
+				
+				books.setImage(imgBook.getImage().impl_getUrl());
+				books.setIsbn(laIsbn.getText());
+				books.setLink(hyLink.getText());
+				books.setMemo(txtMemo.getText());
+				books.setPrice(txtPrice.getText());
+				books.setPrivateMemo("0");
+				String str = laPubdate.getText();
+				str = str.replaceAll("[^0-9]", "");
+				books.setPubdate(str);
+				books.setPublisher(laPublisher.getText());
+				books.setReadDate(pickReadDate.getValue().toString());
+				books.setReading(group.getSelectedToggle().getUserData().toString());
+				books.setStar(txtStar.getText());
+				books.setTitle(laTitle.getText());
+			
+				BookServiceImpl.getInstance().update(books);
+				updateAlert.close();
+			} else {
+				updateAlert.close();
+			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -164,9 +193,22 @@ public class ReadBookController implements Initializable{
 	@FXML
 	private void deleteBooks(ActionEvent actionEvent) {
 		try {
-			String isbn = laIsbn.getText();
-			BookServiceImpl.getInstance().delete(isbn);
-			//삭제한 후에는 창이 꺼져야 함...
+			
+			Alert deleteAlert = new Alert(Alert.AlertType.CONFIRMATION);
+			deleteAlert.setTitle("책 정보 삭제 확인");
+			deleteAlert.setHeaderText("책 정보 삭제 확인");
+			deleteAlert.setContentText("등록한 독서 정보를 완전히 삭제하시겠습니까?");
+					
+			Optional<ButtonType> result = deleteAlert.showAndWait();
+			
+			if(result.get() == ButtonType.OK) {
+				String isbn = laIsbn.getText();
+				BookServiceImpl.getInstance().delete(isbn);
+				System.exit(0);
+			} else {
+				deleteAlert.close();
+			}
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();

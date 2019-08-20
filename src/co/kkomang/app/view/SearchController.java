@@ -216,7 +216,7 @@ public class SearchController implements Initializable{
 			books.setIsbn(laIsbn.getText());
 			books.setDiscount(laDiscount.getText());
 			books.setDescription(laDescription.getText());
-			books.setImage(imgImage.getId());
+			books.setImage(tvBooks.getSelectionModel().getSelectedItem().getImage());
 			
 			books.setCategory("1");
 			books.setMemo(null);

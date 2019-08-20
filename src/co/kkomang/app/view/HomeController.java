@@ -17,8 +17,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -26,6 +29,10 @@ import javafx.stage.Stage;
 public class HomeController implements Initializable {
 	
 	@FXML private AnchorPane home;
+	@FXML private ComboBox<String> option;
+	@FXML private TextField txtSearch;
+	@FXML private Button btnSearch;	
+	
 	@FXML private TableView<BookInfoV> tvBooks;
 	@FXML private TableColumn<BookInfoV, String> colIsbn;
 //	@FXML private TableColumn<BookInfoV, String> colLink;
@@ -48,6 +55,12 @@ public class HomeController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		//콤보박스 초기화
+//		ObservableList<String> list = FXCollections.observableArrayList(
+//				"Isbn", "제목", "저자", "출판사", "카테고리", "읽기 상태");
+//		option.setItems(list);
+//		
 		
 		// 테이블뷰 초기화
 		colIsbn.setCellValueFactory(cellData -> cellData.getValue().isbnProperty());
@@ -81,7 +94,6 @@ public class HomeController implements Initializable {
 		tvBooks.getSelectionModel().selectedItemProperty().addListener((Observable, oldValue, newValue) -> showBookDetails(newValue));
 
 	}
-	
 	private void selectAllDept() {
 		Task<ObservableList<BookInfoV>> task = new Task<ObservableList<BookInfoV>>() {
 
@@ -132,6 +144,12 @@ public class HomeController implements Initializable {
 		}
 	}
 	
+	//검색 버튼
+//	@FXML
+//	public void searchMyBook(ActionEvent actionEvent) {
+//		String[] opt = {""
+//	}
+//	
 	
 	
 

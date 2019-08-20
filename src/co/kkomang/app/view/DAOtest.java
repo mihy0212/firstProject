@@ -18,6 +18,7 @@ public class DAOtest extends Application{
 
 		AnchorPane anc;
 		try {
+//			anc = FXMLLoader.load(getClass().getResource("Search.fxml"));
 			anc = FXMLLoader.load(getClass().getResource("Home.fxml"));
 			Scene scene = new Scene(anc, 450, 800);
 			primaryStage.setScene(scene);
