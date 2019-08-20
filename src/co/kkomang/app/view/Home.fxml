@@ -13,41 +13,18 @@
       <TableView fx:id="tvBooks" layoutX="6.0" layoutY="61.0" prefHeight="687.0" prefWidth="436.0" tableMenuButtonVisible="true">
          <columns>
             <TableColumn fx:id="colCategory" prefWidth="43.0" text="서재" />
-            <TableColumn fx:id="colTitle" prefWidth="77.0" text="책이름">
-               <columns>
-                  <TableColumn fx:id="colIsbn" prefWidth="90.0" text="isbn" />
-               </columns></TableColumn>
-            <TableColumn fx:id="colAuthor" prefWidth="61.0" text="저자" />
-            <TableColumn fx:id="colPublisher" text="출판사">
-               <columns>
-                  <TableColumn fx:id="colPubdate" prefWidth="60.0" text="출간일" />
-               </columns></TableColumn>
-            <TableColumn fx:id="colStar" prefWidth="62.0" text="만족도" />
-            <TableColumn fx:id="colMemo" prefWidth="62.0" text="서평">
-               <columns>
-                  <TableColumn fx:id="colPrivateMemo" prefWidth="53.0" text="서평공개" />
-               </columns>
-            </TableColumn>
-            <TableColumn fx:id="colPrice" prefWidth="40.0" text="정가">
-               <columns>
-                  <TableColumn fx:id="colDiscount" prefWidth="40.0" text="할인가" />
-               </columns>
-            </TableColumn>
-            <TableColumn fx:id="colReading" prefWidth="-1.0" text="독서진행상황">
-               <columns>
-                  <TableColumn fx:id="colReadDate" text="독서시작날짜" />
-               </columns>
-            </TableColumn>
-            <TableColumn fx:id="colDescription" prefWidth="61.0" text="줄거리" />
-            <TableColumn fx:id="colImage" prefWidth="61.0" text="이미지주소" />
-            <TableColumn fx:id="colLink" prefWidth="61.0" text="네이버링크" />
+            <TableColumn fx:id="colTitle" prefWidth="167.0" text="책이름" />
+            <TableColumn fx:id="colAuthor" prefWidth="85.0" text="저자" />
+            <TableColumn fx:id="colReading" prefWidth="61.0" text="읽기상태" />
+            <TableColumn fx:id="colReadDate" prefWidth="65.0" text="독서날짜" />
+            <TableColumn fx:id="colReadDate1" prefWidth="65.0" text="ISBN" />
          </columns>
       </TableView>
       <HBox layoutX="11.0" layoutY="12.0" prefHeight="40.0" prefWidth="429.0" spacing="10.0">
          <children>
             <ComboBox prefHeight="35.0" prefWidth="100.0" />
-            <TextField  prefHeight="35.0" prefWidth="262.0" />
-            <Button  mnemonicParsing="false"  prefHeight="35.0" prefWidth="50.0" text="검색" />
+            <TextField prefHeight="35.0" prefWidth="262.0" />
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="검색" />
          </children>
       </HBox>
    </children>
