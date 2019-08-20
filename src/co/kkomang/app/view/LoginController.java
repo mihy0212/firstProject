@@ -36,7 +36,7 @@ public class LoginController implements Initializable {
 //	private User user;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		membersBtn.setOnAction(event -> membersAction(event));
+//		membersBtn.setOnAction(event -> membersAction(event));
 	}
 
 	public void membersAction(ActionEvent event) {
@@ -85,8 +85,8 @@ public class LoginController implements Initializable {
 				lblStatus.setText("로그인 되었습니다");
 				// 로그인 성공시 화면 전환
 //			Parent home = FXMLLoader.load(getClass().getResource("Home.fxml"));// 새 레이아웃 추가
-				Parent home = FXMLLoader.load(getClass().getResource("RootLayout.fxml"));
-				Scene scene = new Scene(home);// 씬에 레이아웃 추가
+				Parent home = FXMLLoader.load(getClass().getResource("Search.fxml"));
+				Scene scene = new Scene(home);// 씬에 레이아웃 추가    
 				Stage primaryStage = (Stage) membersBtn.getScene().getWindow();
 				primaryStage.setScene(scene);
 			}
