@@ -46,10 +46,12 @@ public class BookServiceImpl {
 			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
+				System.out.println(e1.getMessage());
 			}
 			rsCode = -9;
 		} finally {
@@ -75,10 +77,12 @@ public class BookServiceImpl {
 			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
+				System.out.println(e1.getMessage());
 			}
 			rsCode = -9;
 		} finally {
@@ -104,10 +108,12 @@ public class BookServiceImpl {
 			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
+				System.out.println(e1.getMessage());
 			}
 			rsCode = -9;
 		} finally {
@@ -137,6 +143,7 @@ public class BookServiceImpl {
 			return bookDAO.selectIsbn(conn, isbn);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return null;
 		} finally {
 			DAO.close(conn);
@@ -154,6 +161,7 @@ public class BookServiceImpl {
 			list = bookDAO.selectAll(conn);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return null;
 		} finally {
 			DAO.close(conn);
@@ -168,6 +176,7 @@ public class BookServiceImpl {
 			return bookDAO.selectIsbnV(conn, isbn);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return null;
 		} finally {
 			DAO.close(conn);
@@ -182,6 +191,7 @@ public class BookServiceImpl {
 			list = bookDAO.selectAllV(conn);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return null;
 		} finally {
 			DAO.close(conn);

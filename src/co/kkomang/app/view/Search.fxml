@@ -44,7 +44,7 @@
       <Label fx:id="laAuthor" layoutX="159.0" layoutY="121.0" prefHeight="22.0" prefWidth="96.0" />
       <Label layoutX="128.0" layoutY="142.0" prefHeight="22.0" prefWidth="31.0" text="ISBN" textFill="#909090" />
       <Label layoutX="265.0" layoutY="142.0" prefHeight="22.0" prefWidth="41.0" text="출판일" textFill="#909090" />
-      <Label fx:id="laDescription" layoutX="128.0" layoutY="166.0" prefHeight="64.0" prefWidth="314.0">
+      <Label fx:id="laDescription" layoutX="128.0" layoutY="166.0" prefHeight="64.0" prefWidth="314.0" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="10.0" />
          </font>
@@ -52,7 +52,7 @@
       <Label fx:id="laPublisher" layoutX="306.0" layoutY="121.0" prefHeight="22.0" prefWidth="96.0" />
       <Label fx:id="laIsbn" layoutX="159.0" layoutY="142.0" prefHeight="22.0" prefWidth="96.0" />
       <Label fx:id="laPubdate" layoutX="306.0" layoutY="142.0" prefHeight="22.0" prefWidth="96.0" />
-      <Button fx:id="btnInsert" onAction="#insertMyBooks" layoutX="342.0" layoutY="236.0" mnemonicParsing="false" text="내 서재에 등록" />
+      <Button fx:id="btnInsert" layoutX="342.0" layoutY="236.0" mnemonicParsing="false" onAction="#insertMyBooks" text="내 서재에 등록" />
       <Label fx:id="laDiscount" layoutX="370.0" layoutY="95.0" prefHeight="22.0" prefWidth="70.0" textFill="#909090" />
    </children>
 </AnchorPane>
