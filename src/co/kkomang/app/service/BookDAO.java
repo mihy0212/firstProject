@@ -80,7 +80,7 @@ public class BookDAO {
 				+ " star=?,"
 				+ " private_memo=?,"
 				+ " reading=?,"
-				+ " read_date=to_date(?, 'yyyy-MM-dd')"
+				+ " read_date=to_date(?, 'yyyyMMdd')"
 				+ " where isbn=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, book.getTitle());
