@@ -125,6 +125,7 @@ public class ReadBookController implements Initializable{
 		System.out.println(group.getSelectedToggle().getUserData().toString());
 		
 //		pickReadDate.setValue(Integer.parseInt(books.getReadDate()));
+		System.out.println(books.getReadDate());
 		int readDateYY = getFromCalendar(books.getReadDate(),Calendar.YEAR);
 		int readDateMM = getFromCalendar(books.getReadDate(),Calendar.MONTH);
 		int readDateDD = getFromCalendar(books.getReadDate(),Calendar.DAY_OF_MONTH);
@@ -204,7 +205,7 @@ public class ReadBookController implements Initializable{
 			if(result.get() == ButtonType.OK) {
 				String isbn = laIsbn.getText();
 				BookServiceImpl.getInstance().delete(isbn);
-				System.exit(0);
+//				exit();
 			} else {
 				deleteAlert.close();
 			}

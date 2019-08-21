@@ -17,7 +17,7 @@ public class DAO {
 	public static Connection getConnect() {
 		
 		Properties prop = new Properties();
-		String path = PropertiesExample.class.getResource("/config/database.properties").getPath(); //database의 위치를 얻어오는 방법.
+		String path = PropertiesExample.class.getResource("config/database.properties").getPath(); //database의 위치를 얻어오는 방법.
 		try {
 			path = URLDecoder.decode(path, "utf=8");
 			prop.load(new FileReader(path));
