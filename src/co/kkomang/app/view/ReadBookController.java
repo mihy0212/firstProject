@@ -98,11 +98,14 @@ public class ReadBookController implements Initializable{
 		laTitle.setText(books.getTitle());
 		laAuthor.setText(books.getAuthor());
 		laPublisher.setText(books.getPublisher());
-		
-		int pubdateYY = getFromCalendar(books.getPubdate(),Calendar.YEAR);
-		int pubdateMM = getFromCalendar(books.getPubdate(),Calendar.MONTH);
-		int pubdateDD = getFromCalendar(books.getPubdate(),Calendar.DAY_OF_MONTH);
-		laPubdate.setText(pubdateYY+"년 "+pubdateMM+"월 "+pubdateDD+"일"); // 이것도 년월일로 나와야 함
+//		int pubdateYY = getFromCalendar(books.getPubdate(),Calendar.YEAR);
+//		int pubdateMM = getFromCalendar(books.getPubdate(),Calendar.MONTH);
+//		int pubdateDD = getFromCalendar(books.getPubdate(),Calendar.DAY_OF_MONTH);
+		String str = books.getPubdate();
+		String pubdateYY = str.substring(0, 4);
+		String pubdateMM = str.substring(5, 7);
+		String pubdateDD = str.substring(8, 10);
+		laPubdate.setText(Integer.parseInt(pubdateYY) +"년 "+Integer.parseInt(pubdateMM)+"월 "+Integer.parseInt(pubdateDD)+"일"); // 이것도 년월일로 나와야 함
 		System.out.println(laPubdate.getText());
 		
 		//'읽기 진행 상황' 그룹으로 묶기
@@ -122,14 +125,17 @@ public class ReadBookController implements Initializable{
 				}
 			}
 		);
-		System.out.println(group.getSelectedToggle().getUserData().toString());
 		
 //		pickReadDate.setValue(Integer.parseInt(books.getReadDate()));
 		System.out.println(books.getReadDate());
-		int readDateYY = getFromCalendar(books.getReadDate(),Calendar.YEAR);
-		int readDateMM = getFromCalendar(books.getReadDate(),Calendar.MONTH);
-		int readDateDD = getFromCalendar(books.getReadDate(),Calendar.DAY_OF_MONTH);
-		pickReadDate.setValue(LocalDate.of (readDateYY, readDateMM, readDateDD));
+//		int readDateYY = getFromCalendar(books.getReadDate(),Calendar.YEAR);
+//		int readDateMM = getFromCalendar(books.getReadDate(),Calendar.MONTH);
+//		int readDateDD = getFromCalendar(books.getReadDate(),Calendar.DAY_OF_MONTH);
+		String str1 = books.getReadDate();
+		String readDateYY = str1.substring(0, 4);
+		String readDateMM = str1.substring(5, 7);
+		String readDateDD = str1.substring(8, 10);
+		pickReadDate.setValue(LocalDate.of (Integer.parseInt(readDateYY), Integer.parseInt(readDateMM), Integer.parseInt(readDateDD)));
 		System.out.println(pickReadDate.getValue().toString());
 		
 		
