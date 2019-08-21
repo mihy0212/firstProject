@@ -38,9 +38,16 @@
 }
 .btnHome{
 	-fx-background-image: url("img/Home-256.png");
+	-fx-background-size: 65px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 90%;
 }
 .btnSearch{
 	-fx-background-image: url("img/serch.jpg");
+	-fx-background-size: 65px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 90%;
 }
 
+   
 

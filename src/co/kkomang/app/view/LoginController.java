@@ -17,6 +17,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
@@ -32,11 +34,14 @@ public class LoginController implements Initializable {
 	private Button membersBtn;
 	@FXML
 	private Button loginBtn;
+	@FXML
+	private Text welcomeTxt;
+	@FXML
+	private HBox loginBox;
 
 //	private User user;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-//		membersBtn.setOnAction(event -> membersAction(event));
 	}
 
 	public void membersAction(ActionEvent event) {
@@ -48,33 +53,9 @@ public class LoginController implements Initializable {
 //			mem.setScene(scene); // 씬에 레이아웃 추가//이 코드 있을 경우 member에서 canel 사용불가
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-	}
+		} // catch
+	}// membersAction
 
-//	//db연결
-//		public void LoginAction(ActionEvent event) {
-//			try {
-//				UserServiceImpl uService = new UserServiceImpl();
-//
-//				if (uService.login(txtUserName.getText(), txtPassword.getText()) != null) {
-////					uService.login(txtUserName.getText(), txtPassword.getText());
-//					lblStatus.setText("로그인 되었습니다");
-//				Parent home = FXMLLoader.load(getClass().getResource("Home.fxml"));// 새 레이아웃 추가
-//				Scene scene = new Scene(home);// 씬에 레이아웃 추가
-//				Stage primaryStage = (Stage) membersBtn.getScene().getWindow();
-//				primaryStage.setScene(scene);
-//				}
-//				else {
-//					lblStatus.setText("아이디와 비밀번호를 확인주세요");
-//				}
-//
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//				
-//			}
-//
-//		}
-//	}
 	// db연결
 	public void LoginAction(ActionEvent event) {
 		try {
@@ -83,14 +64,14 @@ public class LoginController implements Initializable {
 			if (uService.login(txtUserName.getText(), txtPassword.getText()) != null) {
 				uService.login(txtUserName.getText(), txtPassword.getText());
 				lblStatus.setText("로그인 되었습니다");
+				JOptionPane.showMessageDialog(null, txtUserName.getText() + "님 접속을 환영합니다.");
 				// 로그인 성공시 화면 전환
-//			Parent home = FXMLLoader.load(getClass().getResource("Home.fxml"));// 새 레이아웃 추가
 				Parent home = FXMLLoader.load(getClass().getResource("RootLayout.fxml"));
-				Scene scene = new Scene(home);// 씬에 레이아웃 추가    
+				Scene scene = new Scene(home);// 씬에 레이아웃 추가
 				Stage primaryStage = (Stage) membersBtn.getScene().getWindow();
 				primaryStage.setScene(scene);
-			}
-			// 입력안했을경우
+			} // if
+				// 입력안했을경우
 			else if (txtUserName.getText().equals("") || txtPassword.getText().equals("")) {
 				lblStatus.setText("아이디와 비밀번호를 입력해주세요");
 			}
@@ -101,11 +82,38 @@ public class LoginController implements Initializable {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} // catch
+	}// LoginAction
+}// LoginController
 
-		}
-
-	}
-}
+// @Override
+//	public void initialize(URL arg0, ResourceBundle arg1) {
+//		membersBtn.setOnAction(event -> membersAction(event));
+//	}
+////db연결
+//public void LoginAction(ActionEvent event) {
+//	try {
+//		UserServiceImpl uService = new UserServiceImpl();
+//
+//		if (uService.login(txtUserName.getText(), txtPassword.getText()) != null) {
+////			uService.login(txtUserName.getText(), txtPassword.getText());
+//			lblStatus.setText("로그인 되었습니다");
+//		Parent home = FXMLLoader.load(getClass().getResource("Home.fxml"));// 새 레이아웃 추가
+//		Scene scene = new Scene(home);// 씬에 레이아웃 추가
+//		Stage primaryStage = (Stage) membersBtn.getScene().getWindow();
+//		primaryStage.setScene(scene);
+//		}
+//		else {
+//			lblStatus.setText("아이디와 비밀번호를 확인주세요");
+//		}
+//
+//	} catch (Exception e) {
+//		e.printStackTrace();
+//		
+//	}
+//
+//}
+//}
 
 //
 //	public void LoginAction(ActionEvent event) throws Exception {
