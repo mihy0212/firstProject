@@ -23,7 +23,7 @@ public class RootController implements Initializable {
 	@FXML ImageView mypage;
 	@FXML Button btnHome;
 	@FXML Button btnSearch;
-	
+	@FXML Button btnMy;
 	
 	private Executor exec;
 	boolean roop = true;
@@ -74,7 +74,17 @@ public class RootController implements Initializable {
 		}
 	}
 
-
+	@FXML
+	public void handleMy(ActionEvent actionEvent) { 
+		try {
+			AnchorPane mypageView = 
+					FXMLLoader.load(getClass().getResource("Mypage.fxml"));
+			borderPane.setCenter(mypageView);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
 	
 //	@FXML
 //	public void handleMypage(ActionEvent actionEvent) { //무조건 온액션인 것은 아님. 우리는 버튼형이라서 온액션을 쓰고 있음. 키보드 이벤트면 keyEvent여야 하고, mouse무스 이벤트면 mouseMotion 등이 따로 있음.

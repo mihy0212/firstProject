@@ -48,6 +48,12 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: 90%;
 }
+.btnMy{
+	-fx-background-image: url("img/mine.png");
+	-fx-background-size: 65px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 90%;
+}
 
    
 

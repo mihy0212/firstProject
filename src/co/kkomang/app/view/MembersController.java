@@ -68,10 +68,6 @@ public class MembersController implements Initializable {
 
 	}
 
-//	private Object membersAction(ActionEvent e) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 	public void calcelAction(ActionEvent event) {
 		try {
@@ -84,19 +80,19 @@ public class MembersController implements Initializable {
 		}
 	}
 
-//	public void idcheckAction(ActionEvent e) {
-//		try {
-//			UserServiceImpl uService = new UserServiceImpl();
-//			if (uService.selectOne(txtuserId.getText()) != null) {
-////				JOptionPane.showMessageDialog(null, "이미있는 아이디 입니다.");
+	public void idcheckAction(ActionEvent e) {
+		try {
+			UserServiceImpl uService = new UserServiceImpl();
+			if (uService.selectOne(txtuserId.getText()) != null) {
+				JOptionPane.showMessageDialog(null, "이미있는 아이디 입니다.");
 //				lblId.setText("이미있는 아이디 입니다");
-//			} else {
-//				lblId.setText("사용가능한 아이디 입니다");
-//			}
-//		} catch (Exception e2) {
-//		}
-//	}
-//}
+			} else {
+				JOptionPane.showMessageDialog(null,"사용가능한 아이디 입니다");
+			}
+		} catch (Exception e2) {
+		}
+	}
+
 
 //아이디 중복체크1128 참고 usersevice 수정
 //
@@ -147,7 +143,6 @@ public class MembersController implements Initializable {
 
 //@FXML
 //private void checkAction(keybo ) {
-
 	public void showLogView() {
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
