@@ -62,19 +62,25 @@ private Stage primaryStage;
 		
 
 	}
-
-	public void showLogView() {
-		try {
-			AnchorPane logView = FXMLLoader.load(getClass().getResource("view/LoginView.fxml"));
-			Scene scene = new Scene(logView);
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-		}
-		
-	}
 }
+
+
+
+
+
+
+//	public void showLogView() {
+//		try {
+//			AnchorPane logView = FXMLLoader.load(getClass().getResource("view/LoginView.fxml"));
+//			Scene scene = new Scene(logView);
+//			primaryStage.setScene(scene);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.out.println(e.getMessage());
+//		}
+//		
+//	}
+//}
 	
 //
 //	public void showmemberView() {
@@ -112,7 +118,3 @@ private Stage primaryStage;
 //			e.printStackTrace();
 //		}
 //	}
-
-
-
-

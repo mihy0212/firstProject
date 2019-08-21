@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.kkomang.app.view.RootController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.kkomang.app.view.RootController">
    <bottom>
-      <HBox prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="home" fitHeight="59.0" fitWidth="75.0" onDragDetected="#handleHome" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/Home-256.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="search" fitHeight="61.0" fitWidth="56.0" onDragDetected="#handleSearch" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/serch.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="mypage" fitHeight="62.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/mine.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnHome" mnemonicParsing="false" onAction="#handleHome" text="Button" />
-            <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#handleSearch" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button fx:id="btnHome" mnemonicParsing="false" onAction="#handleHome" prefHeight="69.0" prefWidth="61.0" style="-fx-background-color: white;" styleClass="btnHome" stylesheets="@style.css">
+               <HBox.margin>
+                  <Insets right="130.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#handleSearch" prefHeight="71.0" prefWidth="61.0" style="-fx-background-color: white;" styleClass="btnSearch" stylesheets="@style.css">
+               <HBox.margin>
+                  <Insets right="137.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btnMy" layoutX="399.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleMy" prefHeight="72.0" prefWidth="61.0" style="-fx-background-color: white;" styleClass="btnMy" stylesheets="@style.css" />
          </children>
       </HBox>
    </bottom>

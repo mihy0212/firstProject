@@ -59,6 +59,8 @@ public class MembersController implements Initializable {
 	@FXML
 	private Label lblPw;
 	@FXML
+	private Label lblEm;
+	@FXML
 	private CheckBox checkId;
 //	@FXML
 //	private Label lblId;
@@ -67,7 +69,6 @@ public class MembersController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 	}
-
 
 	public void calcelAction(ActionEvent event) {
 		try {
@@ -86,13 +87,16 @@ public class MembersController implements Initializable {
 			if (uService.selectOne(txtuserId.getText()) != null) {
 				JOptionPane.showMessageDialog(null, "이미있는 아이디 입니다.");
 //				lblId.setText("이미있는 아이디 입니다");
-			} else {
-				JOptionPane.showMessageDialog(null,"사용가능한 아이디 입니다");
+			}
+				else if(txtuserId.getText() == null) {
+					JOptionPane.showMessageDialog(null, "아이디를 입력해주세요.");
+				}
+			 else {
+				JOptionPane.showMessageDialog(null, "사용가능한 아이디 입니다");
 			}
 		} catch (Exception e2) {
 		}
 	}
-
 
 //아이디 중복체크1128 참고 usersevice 수정
 //
@@ -130,8 +134,7 @@ public class MembersController implements Initializable {
 					// 리스너에서
 					txtpasswd.setText("");
 					txtpasswd2.setText("");
-				}
-				else {
+				} else {
 					insetUser();
 					showPopView();
 					showLogView();
@@ -191,16 +194,29 @@ public class MembersController implements Initializable {
 	public void chPw(KeyEvent e) {
 		String pw = txtpasswd.getText();
 		String pw2 = txtpasswd2.getText();
-//				TextField txtpasswd = (TextField) e.getSource();
-//		if(pw !=null && pw2==null) {
-//			lblPw.setText("한번더 입력해주세요.");// FIXME
-//		}
-		if (pw.equals(pw2)) {
-			lblPw.setText("비밀번호가 일치합니다.");// FIXME
-//			txtpasswd.setText("");
-//			txtpasswd2.setText("");
-		} else if(pw != pw2) {
-			lblPw.setText("비밀번호가 일치하지않습니다.");// FIXME
+		if(pw==null || pw2==null) {
+			lblPw.setText("한번더 입력헤주세요.");
+		}
+		else if (pw.equals(pw2) != true) {
+	lblPw.setText("비밀번호가 일치하지 않습니다.");// FIXME
+	}
+		else {
+			lblPw.setText("감사합니다");
+		}
+	}
+	
+	@FXML
+	public void chEm(KeyEvent e) {
+		String mail = txtemail.getText();
+		UserServiceImpl uService = new UserServiceImpl();
+		try {
+			if (uService.selectOne(mail) != null) {
+				JOptionPane.showMessageDialog(null, "이미가입된 이메일 입니다.");
+				txtemail.setText("");
+			} else {
+				JOptionPane.showMessageDialog(null, "사용가능한 이메일 입니다");
+			}
+		} catch (Exception e2) {
 		}
 	}
 
