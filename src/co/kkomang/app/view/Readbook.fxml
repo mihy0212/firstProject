@@ -40,7 +40,7 @@
          </font>
       </Label>
       <Separator layoutX="159.0" layoutY="49.0" orientation="VERTICAL" prefHeight="240.0" />
-      <Label fx:id="laTitle" layoutX="167.0" layoutY="57.0" prefHeight="35.0" prefWidth="275.0">
+      <Label fx:id="laTitle" layoutX="167.0" layoutY="57.0" prefHeight="35.0" prefWidth="275.0" wrapText="true">
          <font>
             <Font name="Malgun Gothic Bold" size="16.0" />
          </font>
@@ -73,9 +73,9 @@
                <children>
                   <Label layoutX="15.0" layoutY="5.0" prefHeight="15.0" prefWidth="155.0" text="이 책에 대한 요약 설명" />
                   <Hyperlink fx:id="hyLink" layoutX="291.0" layoutY="5.0" prefHeight="21.0" prefWidth="125.0" text="...더 많은 정보 보기" />
-                  <TextArea fx:id="txtDescription" layoutX="14.0" layoutY="25.0" prefHeight="135.0" prefWidth="396.0" />
+                  <TextArea fx:id="txtDescription" layoutX="14.0" layoutY="25.0" prefHeight="135.0" prefWidth="396.0" wrapText="true" />
                   <Label layoutX="16.0" layoutY="172.0" text="메모하기" />
-                  <TextArea fx:id="txtMemo" layoutX="15.0" layoutY="193.0" prefHeight="200.0" prefWidth="395.0" />
+                  <TextArea fx:id="txtMemo" layoutX="15.0" layoutY="193.0" prefHeight="200.0" prefWidth="395.0" wrapText="true" />
                   <CheckBox fx:id="btnPrivateMemo" layoutX="323.0" layoutY="172.0" mnemonicParsing="false" text="비밀로 하기" visible="false" />
                   <TextField fx:id="txtPrice" layoutX="53.0" layoutY="431.0" prefHeight="23.0" prefWidth="97.0" />
                   <Label layoutX="16.0" layoutY="407.0" text="이 책의 구매 비용" />

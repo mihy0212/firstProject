@@ -30,10 +30,10 @@ private Stage primaryStage;
 
 	public void start(Stage primaryStage) {
 		try {
-			File file = new File("d:/log.txt");
-			PrintStream printStream = new PrintStream(new FileOutputStream(file));
-			System.setOut(printStream);
-			System.setErr(printStream);
+//			File file = new File("d:/log.txt");
+//			PrintStream printStream = new PrintStream(new FileOutputStream(file));
+//			System.setOut(printStream);
+//			System.setErr(printStream);
 
 			//
 			this.primaryStage = primaryStage;

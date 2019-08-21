@@ -29,9 +29,9 @@ import javafx.stage.Stage;
 public class HomeController implements Initializable {
 	
 	@FXML private AnchorPane home;
-	@FXML private ComboBox<String> option;
-	@FXML private TextField txtSearch;
-	@FXML private Button btnSearch;	
+//	@FXML private ComboBox<String> option;
+//	@FXML private TextField txtSearch;
+//	@FXML private Button btnSearch;	
 	
 	@FXML private TableView<BookInfoV> tvBooks;
 	@FXML private TableColumn<BookInfoV, String> colIsbn;
