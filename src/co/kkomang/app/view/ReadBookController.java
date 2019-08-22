@@ -82,6 +82,7 @@ public class ReadBookController implements Initializable{
 		
 	}
 	
+	String pubdate;
 	private void selectOneBooks() {
 		String isbn = laIsbn.getText();
 		BookInfo books = BookServiceImpl.getInstance().selectIsbn(isbn);
@@ -105,8 +106,8 @@ public class ReadBookController implements Initializable{
 		String pubdateYY = str.substring(0, 4);
 		String pubdateMM = str.substring(5, 7);
 		String pubdateDD = str.substring(8, 10);
+		pubdate = str.substring(0,10);
 		laPubdate.setText(Integer.parseInt(pubdateYY) +"년 "+Integer.parseInt(pubdateMM)+"월 "+Integer.parseInt(pubdateDD)+"일"); // 이것도 년월일로 나와야 함
-		System.out.println(laPubdate.getText());
 		
 		//'읽기 진행 상황' 그룹으로 묶기
 		reading1.setUserData("1");
@@ -136,7 +137,6 @@ public class ReadBookController implements Initializable{
 		String readDateMM = str1.substring(5, 7);
 		String readDateDD = str1.substring(8, 10);
 		pickReadDate.setValue(LocalDate.of (Integer.parseInt(readDateYY), Integer.parseInt(readDateMM), Integer.parseInt(readDateDD)));
-		System.out.println(pickReadDate.getValue().toString());
 		
 		
 		txtStar.setText(books.getStar());
@@ -176,13 +176,14 @@ public class ReadBookController implements Initializable{
 				books.setMemo(txtMemo.getText());
 				books.setPrice(txtPrice.getText());
 				books.setPrivateMemo("0");
-				String str = laPubdate.getText();
+				String str = pubdate;
 				str = str.replaceAll("[^0-9]", "");
 				books.setPubdate(str);
 				books.setPublisher(laPublisher.getText());
+				System.out.println("저장시3 : " + pickReadDate.getValue().toString());
 				String time = pickReadDate.getValue().toString();
 				time = time.replaceAll("[^0-9]", "");
-				System.out.println(time);
+				System.out.println("저장시4 : " + time);
 				books.setReadDate(time);
 				books.setReading(group.getSelectedToggle().getUserData().toString());
 				books.setStar(txtStar.getText());
