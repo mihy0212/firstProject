@@ -19,6 +19,7 @@ public class BookInfo {
 	private String privateMemo;
 	private String reading;
 	private String readDate;
+	private String userId;
 	
 	public String getIsbn() {
 		return isbn;
@@ -116,8 +117,12 @@ public class BookInfo {
 	public void setReadDate(String readDate) {
 		this.readDate = readDate;
 	}
-
-	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	
 	@Override
 	public String toString() {
@@ -125,7 +130,9 @@ public class BookInfo {
 				+ ", author=" + author + ", pubdate=" + pubdate + ", price=" + price + ", discount=" + discount
 				+ ", image=" + image + ", description=" + description + ", category=" + category + ", memo=" + memo
 				+ ", star=" + star + ", privateMemo=" + privateMemo + ", reading=" + reading + ", readDate=" + readDate
-				+ ", choiceWhere=" + "]";
+				+ ", userId=" + userId + "]";
 	}
+	
+
 	
 }

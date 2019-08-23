@@ -180,10 +180,8 @@ public class ReadBookController implements Initializable{
 				str = str.replaceAll("[^0-9]", "");
 				books.setPubdate(str);
 				books.setPublisher(laPublisher.getText());
-				System.out.println("저장시3 : " + pickReadDate.getValue().toString());
 				String time = pickReadDate.getValue().toString();
 				time = time.replaceAll("[^0-9]", "");
-				System.out.println("저장시4 : " + time);
 				books.setReadDate(time);
 				books.setReading(group.getSelectedToggle().getUserData().toString());
 				books.setStar(txtStar.getText());

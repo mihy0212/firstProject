@@ -22,6 +22,7 @@ public class BookInfoV {
 	private StringProperty privateMemo;
 	private StringProperty reading;
 	private StringProperty readDate;
+	private StringProperty userId;
 	
 	//생성자
 	public BookInfoV() {
@@ -41,6 +42,7 @@ public class BookInfoV {
 		privateMemo = new SimpleStringProperty();
 		reading  = new SimpleStringProperty();
 		readDate = new SimpleStringProperty();
+		userId = new SimpleStringProperty();
 	}
 	
 	//property 넘겨주는 메서드
@@ -91,6 +93,9 @@ public class BookInfoV {
 	}
 	public StringProperty readDateProperty() {
 		return readDate;
+	}
+	public StringProperty userIdProperty() {
+		return userId;
 	}
 
 	
@@ -159,6 +164,10 @@ public class BookInfoV {
 		return readDate.get();
 	}
 	
+	public String getUserId() {
+		return userId.get();
+	}
+	
 	//setter
 	
 	public void setIsbn(String isbn) {
@@ -224,7 +233,10 @@ public class BookInfoV {
 	public void setReadDate(String readDate) {
 		this.readDate.set(readDate);
 	}
-
+	
+	public void setUserId(String userId) {
+		this.userId.set(userId);
+	}
 
 	@Override
 	public String toString() {
@@ -232,8 +244,11 @@ public class BookInfoV {
 				+ ", author=" + author + ", pubdate=" + pubdate + ", price=" + price + ", discount=" + discount
 				+ ", image=" + image + ", description=" + description + ", category=" + category + ", memo=" + memo
 				+ ", star=" + star + ", privateMemo=" + privateMemo + ", reading=" + reading + ", readDate=" + readDate
-				+ ", choiceWhere=" + "]";
+				+ ", userId=" + userId + "]";
 	}
+
+
+
 
 	
 	
