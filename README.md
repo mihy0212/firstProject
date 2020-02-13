@@ -33,7 +33,6 @@
 |---|-------------|
 |개발 언어|Java, JavaFX
 |데이터베이스|Oracle Database Express Edition 11g Release 2|
-|서버|TOMCAT 8.5|
 |IDE|Eclipse, SQL Developer, Scene Builder|
 |형상관리|GitHub|
 
