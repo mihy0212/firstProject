@@ -38,7 +38,7 @@
 |형상관리|GitHub|
 
 **사용 API**  
-- Naver API  
+- Naver API(https://developers.naver.com/docs/search/book/)  
 - XmlPullParser
 
 ---------
