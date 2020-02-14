@@ -25,7 +25,7 @@
 ------------
 
 ## :electric_plug: Tech used
-> JAVAFX 기반의 독립형 실행 프로그램  
+> JAVAFX 기반의 PC 실행 프로그램  
 
 
 **개발 환경**
