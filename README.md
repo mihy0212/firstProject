@@ -1,4 +1,4 @@
-# 읽어랏! :: 네이버 API를 활용한 독서 기록 프로그램
+# 읽어랏 :: 네이버 API를 활용한 독서 기록 프로그램
 > 우리집 도서관, 나만의 독서기록장
 
 
@@ -46,13 +46,14 @@
 
 #### 1. 로그인 및 사용자 등록
 <div>
-<img src="https://user-images.githubusercontent.com/53467948/74482126-4a614a00-4ef7-11ea-8753-6c5cb0e0c73b.jpg" width="300"> 
+<img src="https://user-images.githubusercontent.com/53467948/74482126-4a614a00-4ef7-11ea-8753-6c5cb0e0c73b.jpg" width="300">　　
 <img src="https://user-images.githubusercontent.com/53467948/74479796-2bf94f80-4ef3-11ea-85ed-092e16c256bc.jpg" width="300">
 </div>
 
 #### 2. 도서 검색 및 독서 기록
 <div>
-<img src="https://user-images.githubusercontent.com/53467948/74480295-fe60d600-4ef3-11ea-815a-325b4a4359a3.jpg" width="300"> 
-<img src="https://user-images.githubusercontent.com/53467948/74480306-002a9980-4ef4-11ea-977c-555692155dbc.jpg" width="300"> 
+<img src="https://user-images.githubusercontent.com/53467948/74480295-fe60d600-4ef3-11ea-815a-325b4a4359a3.jpg" width="300">　　
+<img src="https://user-images.githubusercontent.com/53467948/74480306-002a9980-4ef4-11ea-977c-555692155dbc.jpg" width="300">　　
 <img src="https://user-images.githubusercontent.com/53467948/74480309-00c33000-4ef4-11ea-9c8d-bb150a90c4f1.jpg" width="300">
 </div>
+
